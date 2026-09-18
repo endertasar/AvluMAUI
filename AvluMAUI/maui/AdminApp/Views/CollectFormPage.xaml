@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · CollectFormPage — Tahsilat Formu -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Avlu.AdminApp.Views.CollectFormPage"
+             Title="2026 Temmuz Aidatı">
+    <ScrollView>
+        <VerticalStackLayout Padding="20,20,20,28" Spacing="14">
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="TUTAR (₺) — kalan otomatik dolu" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" x:Name="AmountEntry" Text="1.250,00" Keyboard="Numeric" /></Border>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="YÖNTEM" />
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="4" Padding="4" BackgroundColor="{AppThemeBinding Light={StaticResource LineSoft}, Dark={StaticResource WhiteAlpha04}}">
+                    <RadioButton Grid.Column="0" Content="Nakit" GroupName="method" />
+                    <RadioButton Grid.Column="1" Content="Havale" GroupName="method" IsChecked="True" />
+                </Grid>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="NOT (opsiyonel)" />
+                <Border Style="{StaticResource FieldBorder}"><Entry x:Name="NoteEntry" Style="{StaticResource FieldEntry}" Placeholder="Örn. Elden teslim alındı" /></Border>
+            </VerticalStackLayout>
+
+            <Border Padding="13,14" StrokeThickness="0" BackgroundColor="{AppThemeBinding Light=#E3F2E9, Dark=#1A2E7D57}">
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout>
+                        <Label Text="Kredi bakiyesinden düş" FontFamily="{StaticResource FontInterSemi}" FontSize="13" TextColor="{StaticResource Success}" />
+                        <Label Text="Mevcut kredi: 0,00 ₺" FontSize="11.5" TextColor="{StaticResource Success}" Margin="0,2,0,0" />
+                    </VerticalStackLayout>
+                    <Switch Grid.Column="1" IsToggled="False" OnColor="{StaticResource Success}" VerticalOptions="Center" />
+                </Grid>
+            </Border>
+
+            <Button Text="Tahsilatı Kaydet" Style="{StaticResource PrimaryButton}" Margin="0,8,0,0" Clicked="OnSaveTapped" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

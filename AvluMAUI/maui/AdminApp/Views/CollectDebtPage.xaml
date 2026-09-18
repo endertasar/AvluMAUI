@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · CollectDebtPage — Tahsilat: Açık Borçlar -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Avlu.Controls"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="Avlu.AdminApp.Views.CollectDebtPage"
+             Title="Borç Seç">
+    <Grid Padding="20,20,20,28" RowDefinitions="Auto,Auto,*" RowSpacing="10">
+
+        <!-- Property header -->
+        <VerticalStackLayout Grid.Row="0" Margin="0,0,0,4">
+            <Label x:Name="PropertyTitleLabel" Text="—"
+                   FontFamily="{StaticResource FontInterSemi}" FontSize="15"
+                   TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+            <Label x:Name="PropertyOwnerLabel" Text="—" Style="{StaticResource Caption}" />
+        </VerticalStackLayout>
+
+        <Label Grid.Row="1" Text="Açık Borçlar"
+               FontFamily="{StaticResource FontInterSemi}" FontSize="13"
+               TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+
+        <!-- Dynamic charge list -->
+        <CollectionView Grid.Row="2" x:Name="ChargesList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!-- ChargeItem: Title, RemainingDisplay, StatusLabel, IsOverdue -->
+                    <Border Margin="0,0,0,8" Padding="14" StrokeThickness="1"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource SurfaceDark}}"
+                            Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource LineDark}}">
+                        <Border.StrokeShape><shapes:RoundRectangle CornerRadius="14" /></Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnChargeTapped" CommandParameter="{Binding}" />
+                        </Border.GestureRecognizers>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Title}"
+                                       FontFamily="{StaticResource FontInterSemi}" FontSize="13.5"
+                                       TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                <controls:StatusPill StatusValue="{Binding Status}" Margin="0,5,0,0" />
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1" Text="{Binding RemainingDisplay}"
+                                   FontFamily="{StaticResource FontInterSemi}" FontSize="15"
+                                   VerticalOptions="Center"
+                                   TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <Label Text="Bu mülke ait açık borç yok." Style="{StaticResource Caption}"
+                       HorizontalTextAlignment="Center" Margin="0,20,0,0" />
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </Grid>
+</ContentPage>

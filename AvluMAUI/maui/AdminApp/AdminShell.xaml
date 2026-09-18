@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  AdminApp Shell — 5 alt tab: Panel, Mülkler, Tahsilat, Raporlar, Diğer.
+  Diğer sekmesi altındaki Aidat Tanımı/Ek Ödemeler/Giderler/Bildirim/Alt Kullanıcılar
+  push route olarak açılır (MorePage.xaml.cs).
+-->
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:Avlu.AdminApp.Views"
+       x:Class="Avlu.AdminApp.AdminShell"
+       Shell.FlyoutBehavior="Disabled"
+       Title="Avlu Yönetici">
+
+    <TabBar>
+        <ShellContent Title="Panel" Route="panel" ContentTemplate="{DataTemplate views:DashboardPage}">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="Segoe" Glyph="&#xE80F;" />
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="Mülkler" Route="mulkler" ContentTemplate="{DataTemplate views:PropertyListPage}" />
+        <ShellContent Title="Tahsilat" Route="collect" ContentTemplate="{DataTemplate views:CollectPropertyPage}" />
+        <ShellContent Title="Raporlar" Route="reports" ContentTemplate="{DataTemplate views:ReportsPage}" />
+        <ShellContent Title="Diğer" Route="more" ContentTemplate="{DataTemplate views:MorePage}" />
+    </TabBar>
+</Shell>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  AdminApp · DashboardPage (Panel)
+  Site adı + dönem seçici, özet kartları, uyarılar, son işlemler.
+  DataStateView ile Loading/Error/Content durumları CS'ten StateVM.State ile kontrol edilir.
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Avlu.Controls"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="Avlu.AdminApp.Views.DashboardPage"
+             Title="Panel">
+
+    <ScrollView>
+        <Grid Padding="20,54,20,20" RowSpacing="0">
+            <controls:DataStateView x:Name="StateHost" CurrentState="Content">
+                <controls:DataStateView.ContentViewContent>
+                    <VerticalStackLayout>
+
+                        <!-- Header -->
+                        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,22">
+                            <VerticalStackLayout>
+                                <Label Text="Güneşli Konutları" FontFamily="{StaticResource FontInterSemi}" FontSize="20"
+                                       TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                <Label Text="Temmuz 2026" Style="{StaticResource Caption}" />
+                            </VerticalStackLayout>
+                            <Border Grid.Column="1" Padding="12,8" StrokeThickness="1"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource SurfaceDark}}"
+                                    Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource LineDark}}">
+                                <Border.StrokeShape><shapes:RoundRectangle CornerRadius="10" /></Border.StrokeShape>
+                                <Label Text="Temmuz 2026 ▾" FontFamily="{StaticResource FontInterSemi}" FontSize="12.5"
+                                       TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                            </Border>
+                        </Grid>
+
+                        <!-- Özet kartları -->
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,0,0,10">
+                            <controls:SummaryCard Label="BU AY TAHSİLAT" Value="84.250,00 ₺" Sub="42 işlem" />
+                            <controls:SummaryCard Grid.Column="1" Label="BEKLEYEN BORÇ" Value="23.400,00 ₺" Sub="18 mülk" Accent="True" />
+                        </Grid>
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,0,0,24">
+                            <controls:SummaryCard Label="BU AY GİDER" Value="12.050,00 ₺" Sub="7 kayıt" />
+                            <controls:SummaryCard Grid.Column="1" Label="TAHSİLAT ORANI" Value="%78" Sub="Hedef %90" />
+                        </Grid>
+
+                        <!-- Uyarılar -->
+                        <Label Text="Uyarılar" FontFamily="{StaticResource FontInterSemi}" FontSize="13" Margin="0,0,0,10"
+                               TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                        <VerticalStackLayout Spacing="8" Margin="0,0,0,24">
+                            <controls:AlertRow Text="Dükkan tipi için aidat tanımı eksik — tahakkuk üretilemez." Tapped="OnDuesAlertTapped" />
+                            <controls:AlertRow Text="3 mülkte 2 aydır ödeme yapılmadı." Tapped="OnDebtorsAlertTapped" />
+                        </VerticalStackLayout>
+
+                        <!-- Son işlemler -->
+                        <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,10">
+                            <Label Text="Son İşlemler" FontFamily="{StaticResource FontInterSemi}" FontSize="13"
+                                   TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                            <Label Grid.Column="1" Text="Tümü" Style="{StaticResource Link}" />
+                        </Grid>
+                        <CollectionView x:Name="RecentTxList">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <!-- x:DataType = TransactionItem (model): Label, Time, Amount, IsPositive -->
+                                    <Border Margin="0,0,0,8" Padding="14,13" StrokeThickness="1"
+                                            BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource SurfaceDark}}"
+                                            Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource LineDark}}">
+                                        <Border.StrokeShape><shapes:RoundRectangle CornerRadius="13" /></Border.StrokeShape>
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <VerticalStackLayout>
+                                                <Label Text="{Binding Label}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5"
+                                                       TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                                <Label Text="{Binding Time}" Style="{StaticResource Caption}" FontSize="11.5" />
+                                            </VerticalStackLayout>
+                                            <Label Grid.Column="1" Text="{Binding AmountDisplay}" FontFamily="{StaticResource FontInterSemi}" FontSize="14"
+                                                   VerticalOptions="Center"
+                                                   TextColor="{Binding IsPositive, Converter={StaticResource BoolToSuccessColorConverter}}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </controls:DataStateView.ContentViewContent>
+            </controls:DataStateView>
+        </Grid>
+    </ScrollView>
+</ContentPage>

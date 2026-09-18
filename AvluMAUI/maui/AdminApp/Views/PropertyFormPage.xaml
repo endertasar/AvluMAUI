@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · PropertyFormPage — Mülk Ekle/Düzenle -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Avlu.AdminApp.Views.PropertyFormPage"
+             Title="Mülk Ekle">
+    <ScrollView>
+        <VerticalStackLayout Padding="20,20,20,28" Spacing="14">
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <VerticalStackLayout Spacing="6">
+                    <Label Style="{StaticResource FieldLabel}" Text="BLOK" />
+                    <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Text="A" /></Border>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Spacing="6">
+                    <Label Style="{StaticResource FieldLabel}" Text="DAİRE NO" />
+                    <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Text="12" /></Border>
+                </VerticalStackLayout>
+            </Grid>
+
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="TİP" />
+                <Picker x:Name="TypePicker" Title="Tip seç">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Daire</x:String>
+                            <x:String>Dükkan</x:String>
+                            <x:String>Otopark</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="SAHİP ADI SOYADI" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Text="Ayşe Yıldız" /></Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="SAHİP TELEFONU" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Keyboard="Telephone" Placeholder="555 123 45 67" /></Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="OTURAN ADI SOYADI (opsiyonel)" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Placeholder="Sahip ile aynıysa boş bırak" /></Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="OTURAN TELEFONU (opsiyonel)" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Keyboard="Telephone" Placeholder="555 000 00 00" /></Border>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="AİDAT SORUMLUSU" />
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="4" Padding="4"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource LineSoft}, Dark={StaticResource WhiteAlpha04}}">
+                    <RadioButton Grid.Column="0" Content="Sahip" GroupName="responsible" IsChecked="True" />
+                    <RadioButton Grid.Column="1" Content="Oturan" GroupName="responsible" />
+                </Grid>
+            </VerticalStackLayout>
+
+            <Button Text="Mülkü Kaydet" Style="{StaticResource PrimaryButton}" Margin="0,10,0,0" Clicked="OnSaveTapped" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

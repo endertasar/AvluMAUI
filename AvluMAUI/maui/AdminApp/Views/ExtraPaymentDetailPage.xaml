@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · ExtraPaymentDetailPage — mülk bazlı taksit durumu -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Avlu.Controls"
+             x:Class="Avlu.AdminApp.Views.ExtraPaymentDetailPage"
+             Title="Asansör Yenileme">
+    <Grid Padding="20,20,20,0" RowDefinitions="Auto,Auto,*" RowSpacing="14">
+        <Label Text="6.000,00 ₺ × mülk · 6 taksit · %68 tahsil edildi" Style="{StaticResource Caption}" FontSize="12.5" />
+        <controls:ProgressBarView Grid.Row="1" Percent="68" HeightRequest="6" />
+        <CollectionView Grid.Row="2" x:Name="RowsList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="14,12" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="10" Margin="0,0,0,8"
+                          BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+                        <Label Text="{Binding Unit}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                        <Label Grid.Column="1" Text="{Binding InstallmentDisplay}" Style="{StaticResource Caption}" FontSize="12.5" VerticalOptions="Center" />
+                        <controls:StatusPill Grid.Column="2" StatusValue="{Binding Status}" VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

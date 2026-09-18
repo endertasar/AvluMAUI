@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · ExpensesListPage -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Avlu.Controls"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="Avlu.AdminApp.Views.ExpensesListPage"
+             Title="Giderler">
+    <Grid Padding="20,20,20,0" RowDefinitions="Auto,Auto,*" RowSpacing="14">
+        <Grid ColumnDefinitions="*,Auto">
+            <Label Text="Temmuz 2026" Style="{StaticResource Caption}" VerticalOptions="Center" />
+            <Button Grid.Column="1" Text="+" FontSize="18" WidthRequest="34" HeightRequest="34" Padding="0" CornerRadius="10"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Navy}, Dark={StaticResource Accent}}"
+                    TextColor="{AppThemeBinding Light=White, Dark={StaticResource NavyDeep}}" Clicked="OnAddTapped" />
+        </Grid>
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Filters}" SelectionMode="Single" HeightRequest="40" ItemsLayout="HorizontalList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="13,7" Margin="0,0,8,0" StrokeThickness="1"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource WhiteAlpha06}}"
+                            Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource WhiteAlpha12}}">
+                        <Border.StrokeShape><shapes:RoundRectangle CornerRadius="999" /></Border.StrokeShape>
+                        <Label Text="{Binding}" FontFamily="{StaticResource FontInterSemi}" FontSize="12.5" TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <controls:DataStateView Grid.Row="2" x:Name="StateHost" CurrentState="Content" ErrorMessage="Giderler yüklenirken bir sorun oluştu.">
+            <controls:DataStateView.ContentViewContent>
+                <CollectionView x:Name="ExpensesList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="14,13" ColumnDefinitions="38,*,Auto" ColumnSpacing="12" Margin="0,0,0,8"
+                                  BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+                                <Border StrokeThickness="0" BackgroundColor="{AppThemeBinding Light={StaticResource LineSoft}, Dark={StaticResource WhiteAlpha06}}">
+                                    <Border.StrokeShape><shapes:RoundRectangle CornerRadius="10" /></Border.StrokeShape>
+                                    <Label Text="{Binding DateShort}" FontSize="10.5" FontFamily="{StaticResource FontInterSemi}" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1">
+                                    <Label Text="{Binding Description}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                    <controls:Badge Text="{Binding Category}" Margin="0,3,0,0" />
+                                </VerticalStackLayout>
+                                <Label Grid.Column="2" Text="{Binding AmountDisplay}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </controls:DataStateView.ContentViewContent>
+        </controls:DataStateView>
+    </Grid>
+</ContentPage>

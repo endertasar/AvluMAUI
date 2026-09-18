@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Notifications"
+             x:Class="AvluMAUI.Views.Notifications.NotificationSendPage"
+             x:DataType="vm:NotificationSendViewModel"
+             Title="Bildirim Gönder">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="16">
+
+            <Label Text="{Binding ErrorMessage}" TextColor="{StaticResource Danger}"
+                   Style="{StaticResource Caption}"
+                   IsVisible="{Binding ErrorMessage, Converter={StaticResource BoolToVisibility}}"
+                   Margin="0,0,0,12"/>
+
+            <Label Text="Başlık *" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Entry Placeholder="Duyuru" Text="{Binding Title}" Style="{StaticResource FieldEntry}"/>
+            </Border>
+
+            <Label Text="İçerik *" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" HeightRequest="100" Margin="0,0,0,16">
+                <Editor Placeholder="Bildirimi buraya yazın..."
+                        Text="{Binding Body}"
+                        Style="{StaticResource FieldEditor}"/>
+            </Border>
+
+            <Label Text="Hedef" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Picker ItemsSource="{Binding TargetTypes}"
+                        SelectedItem="{Binding TargetType}"
+                        Style="{StaticResource FieldPicker}"/>
+            </Border>
+
+            <Border Style="{StaticResource FieldBorder}"
+                    Margin="0,0,0,32"
+                    IsVisible="{Binding NeedsTargetId}">
+                <Entry Placeholder="Blok/Daire/Sakin ID"
+                       Text="{Binding TargetId}"
+                       Style="{StaticResource FieldEntry}"/>
+            </Border>
+
+            <Button Text="Gönder"
+                    Command="{Binding SendCommand}"
+                    Style="{StaticResource PrimaryButton}"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBool}}"/>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Navy}" HorizontalOptions="Center" Margin="0,12"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · SubUserFormPage -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Avlu.AdminApp.Views.SubUserFormPage"
+             Title="Alt Kullanıcı Ekle">
+    <ScrollView>
+        <VerticalStackLayout Padding="20,20,20,28" Spacing="14">
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="AD SOYAD" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Text="Kemal Aydın" /></Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="KULLANICI ADI" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Text="kemal.a" /></Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="ŞİFRE" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" IsPassword="True" Text="••••••••" /></Border>
+            </VerticalStackLayout>
+            <Grid ColumnDefinitions="*,Auto" Padding="14,13" BackgroundColor="{AppThemeBinding Light={StaticResource LineSoft}, Dark={StaticResource WhiteAlpha04}}">
+                <Label Text="Aktif" FontFamily="{StaticResource FontInterSemi}" FontSize="13" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                <Switch Grid.Column="1" IsToggled="True" OnColor="{AppThemeBinding Light={StaticResource Navy}, Dark={StaticResource Accent}}" />
+            </Grid>
+            <Button Text="Kullanıcıyı Kaydet" Style="{StaticResource PrimaryButton}" Margin="0,8,0,0" Clicked="OnSaveTapped" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

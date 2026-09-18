@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:auth="clr-namespace:AvluMAUI.Views.Auth"
+       xmlns:dash="clr-namespace:AvluMAUI.Views.Dashboard"
+       xmlns:prop="clr-namespace:AvluMAUI.Views.Properties"
+       xmlns:dues="clr-namespace:AvluMAUI.Views.Dues"
+       xmlns:pay="clr-namespace:AvluMAUI.Views.Payments"
+       xmlns:notif="clr-namespace:AvluMAUI.Views.Notifications"
+       xmlns:rep="clr-namespace:AvluMAUI.Views.Reports"
+       x:Class="AvluMAUI.AppShell"
+       Shell.NavBarIsVisible="False"
+       Shell.FlyoutBehavior="Disabled">
+
+    <!-- Splash (ilk ekran) -->
+    <ShellContent Route="splash"
+                  ContentTemplate="{DataTemplate auth:SplashPage}"
+                  Shell.NavBarIsVisible="False" />
+
+    <!-- Auth akışı (tab bar yok) -->
+    <ShellContent Route="login"
+                  ContentTemplate="{DataTemplate auth:LoginPage}"
+                  Shell.NavBarIsVisible="False" />
+
+    <!-- Ana uygulama — Tab bar -->
+    <TabBar Route="main">
+
+        <Tab Title="Panel" Route="dashboard">
+            <ShellContent Route="index"
+                          ContentTemplate="{DataTemplate dash:DashboardPage}"
+                          Shell.NavBarIsVisible="False" />
+        </Tab>
+
+        <Tab Title="Mülkler" Route="properties">
+            <ShellContent Route="list"
+                          ContentTemplate="{DataTemplate prop:PropertyListPage}"
+                          Shell.NavBarIsVisible="False" />
+        </Tab>
+
+        <Tab Title="Aidat" Route="dues">
+            <ShellContent Route="list"
+                          ContentTemplate="{DataTemplate dues:DuesDefinitionListPage}"
+                          Shell.NavBarIsVisible="False" />
+        </Tab>
+
+        <Tab Title="Tahsilat" Route="payments">
+            <ShellContent Route="collect"
+                          ContentTemplate="{DataTemplate pay:PaymentCollectPage}"
+                          Shell.NavBarIsVisible="False" />
+        </Tab>
+
+        <Tab Title="Daha Fazla" Route="more">
+            <ShellContent Route="reports"
+                          ContentTemplate="{DataTemplate rep:ReportsMenuPage}"
+                          Shell.NavBarIsVisible="False" />
+        </Tab>
+
+    </TabBar>
+
+</Shell>

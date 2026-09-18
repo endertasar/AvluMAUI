@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Dues"
+             xmlns:models="clr-namespace:AvluMAUI.Models.Dues"
+             x:Class="AvluMAUI.Views.Dues.DuesDefinitionListPage"
+             x:DataType="vm:DuesDefinitionListViewModel"
+             Title="Aidat Tanımları">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Button Grid.Row="0" Text="+ Tanım Ekle"
+                Command="{Binding AddCommand}"
+                Style="{StaticResource PrimaryButton}"
+                Margin="16,12"/>
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Definitions}"
+                        Margin="16,0,16,16">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:DuesDefinition">
+                    <Border Style="{StaticResource Card}" Margin="0,0,0,8">
+                        <Grid ColumnDefinitions="*,Auto" Padding="16,12">
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="{Binding PropertyType}" Style="{StaticResource Body}" FontAttributes="Bold"/>
+                                <Label Text="{Binding DisplayName}"
+                                       Style="{StaticResource Caption}"
+                                       TextColor="{StaticResource TextMuted}"/>
+                            </VerticalStackLayout>
+                            <Button Grid.Column="1" Text="Sil"
+                                    Style="{StaticResource DangerButton}"
+                                    WidthRequest="60" HeightRequest="36"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DuesDefinitionListViewModel}}, Path=DeleteCommand}"
+                                    CommandParameter="{Binding .}"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <Label Text="Henüz tanım yok." Style="{StaticResource Body}"
+                       TextColor="{StaticResource TextMuted}"
+                       HorizontalOptions="Center" Margin="0,40"/>
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

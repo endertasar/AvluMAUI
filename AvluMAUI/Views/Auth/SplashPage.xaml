@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:AvluMAUI.Controls"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="AvluMAUI.Views.Auth.SplashPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource NavyDeep}">
+
+    <Grid>
+        <!-- Radial lacivert arka plan -->
+        <Grid.Background>
+            <RadialGradientBrush Center="0.5,0.3" Radius="0.85">
+                <GradientStop Color="{StaticResource Navy}" Offset="0.0" />
+                <GradientStop Color="{StaticResource NavyDeep}" Offset="1.0" />
+            </RadialGradientBrush>
+        </Grid.Background>
+
+        <!-- Dekoratif kemer deseni -->
+        <Grid Opacity="0.08">
+            <shapes:Path Stroke="White" StrokeThickness="1" Data="M -50 600 V 300 A 80 80 0 0 1 110 300 V 600" />
+            <shapes:Path Stroke="White" StrokeThickness="1" Data="M 40 600 V 300 A 80 80 0 0 1 200 300 V 600" />
+            <shapes:Path Stroke="White" StrokeThickness="1" Data="M 130 600 V 300 A 80 80 0 0 1 290 300 V 600" />
+            <shapes:Path Stroke="White" StrokeThickness="1" Data="M 220 600 V 300 A 80 80 0 0 1 380 300 V 600" />
+        </Grid>
+
+        <!-- Merkez içerik -->
+        <VerticalStackLayout Spacing="18"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+            <controls:AvluLogomark Size="76"
+                                   MainColor="White"
+                                   AccentColor="{StaticResource Accent}" />
+            <Label Text="avlu"
+                   FontFamily="{StaticResource FontInterSemi}"
+                   FontSize="38"
+                   TextColor="White"
+                   CharacterSpacing="-0.8"
+                   HorizontalOptions="Center" />
+            <Label Text="APARTMAN YÖNETİMİ"
+                   FontFamily="{StaticResource FontInter}"
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   TextColor="#99FFFFFF"
+                   CharacterSpacing="4"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <!-- Alt nokta indikatörü -->
+        <HorizontalStackLayout Spacing="4"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End"
+                               Margin="0,0,0,50">
+            <Ellipse WidthRequest="6" HeightRequest="6" Fill="#80FFFFFF" />
+            <Ellipse WidthRequest="6" HeightRequest="6" Fill="#80FFFFFF" />
+            <Ellipse WidthRequest="6" HeightRequest="6" Fill="#80FFFFFF" />
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

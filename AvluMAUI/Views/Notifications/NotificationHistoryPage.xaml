@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Notifications"
+             xmlns:models="clr-namespace:AvluMAUI.Models.Notification"
+             x:Class="AvluMAUI.Views.Notifications.NotificationHistoryPage"
+             x:DataType="vm:NotificationHistoryViewModel"
+             Title="Bildirim Geçmişi">
+
+    <CollectionView ItemsSource="{Binding Notifications}" Margin="16"
+                    RemainingItemsThreshold="3"
+                    RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:NotificationDto">
+                <Border Style="{StaticResource Card}" Margin="0,0,0,8">
+                    <VerticalStackLayout Padding="16,12">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Grid.Column="0" Text="{Binding Title}"
+                                   Style="{StaticResource Body}" FontAttributes="Bold"/>
+                            <Label Grid.Column="1"
+                                   Text="{Binding SentAt, StringFormat='{0:dd.MM.yyyy}'}"
+                                   Style="{StaticResource Caption}"
+                                   TextColor="{StaticResource TextMuted}"/>
+                        </Grid>
+                        <Label Text="{Binding Body}" Style="{StaticResource Caption}"
+                               TextColor="{StaticResource TextSecondary}"
+                               MaxLines="2" LineBreakMode="TailTruncation"
+                               Margin="0,4,0,4"/>
+                        <Label Text="{Binding TargetLabel}"
+                               Style="{StaticResource Caption}"
+                               TextColor="{StaticResource NavyLight}"/>
+                    </VerticalStackLayout>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+        <CollectionView.EmptyView>
+            <Label Text="Henüz bildirim yok." Style="{StaticResource Body}"
+                   TextColor="{StaticResource TextMuted}"
+                   HorizontalOptions="Center" Margin="0,40"/>
+        </CollectionView.EmptyView>
+    </CollectionView>
+</ContentPage>

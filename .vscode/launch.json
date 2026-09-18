@@ -1,0 +1,86 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        // ── Debugging olmadan çalıştır (her zaman çalışır) ──────────────────
+        {
+            "name": "▶ Run – iPhone 15 Pro (iOS 17.2)",
+            "type": "dotnet",
+            "request": "launch",
+            "noDebug": true,
+            "projectPath": "${workspaceFolder}/AvluMAUI/AvluMAUI.csproj",
+            "target": {
+                "simulator": {
+                    "deviceId": "EA44ADBF-FF8F-4D9A-8ABE-25277AD88C70"
+                }
+            }
+        },
+        {
+            "name": "▶ Run – iPhone 16 Pro (iOS 18.3)",
+            "type": "dotnet",
+            "request": "launch",
+            "noDebug": true,
+            "projectPath": "${workspaceFolder}/AvluMAUI/AvluMAUI.csproj",
+            "target": {
+                "simulator": {
+                    "deviceId": "774E9C8A-AEB1-4989-9099-036AFF39DC1B"
+                }
+            }
+        },
+
+        // ── MAUI extension debugger (nokta konması destekli) ────────────────
+        {
+            "name": "🐛 Debug – iPhone 15 Pro (iOS 17.2)",
+            "type": "maui",
+            "request": "launch",
+            "project": "${workspaceFolder}/AvluMAUI/AvluMAUI.csproj",
+            "configuration": "Debug",
+            "targetFramework": "net9.0-ios",
+            "device": "EA44ADBF-FF8F-4D9A-8ABE-25277AD88C70"
+        },
+        {
+            "name": "🐛 Debug – iPhone 16 Pro (iOS 18.3)",
+            "type": "maui",
+            "request": "launch",
+            "project": "${workspaceFolder}/AvluMAUI/AvluMAUI.csproj",
+            "configuration": "Debug",
+            "targetFramework": "net9.0-ios",
+            "device": "774E9C8A-AEB1-4989-9099-036AFF39DC1B"
+        },
+
+        // ── Eski dotnet debug konfigürasyonları (yedek) ─────────────────────
+        {
+            "name": "C#: AvluMAUI [iPhone 15 Pro - iOS 17.2]",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/AvluMAUI/AvluMAUI.csproj",
+            "target": {
+                "simulator": {
+                    "deviceId": "EA44ADBF-FF8F-4D9A-8ABE-25277AD88C70"
+                }
+            }
+        },
+        {
+            "name": "C#: AvluMAUI [iPhone 16 Pro - iOS 18.4]",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/AvluMAUI/AvluMAUI.csproj",
+            "target": {
+                "simulator": {
+                    "deviceId": "04D79E44-8B3B-4D31-9730-5CD6B662442B"
+                }
+            }
+        },
+        {
+            "name": "C#: AvluMAUI [iPhone 16 Pro - iOS 18.3]",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/AvluMAUI/AvluMAUI.csproj",
+            "target": {
+                "simulator": {
+                    "deviceId": "774E9C8A-AEB1-4989-9099-036AFF39DC1B"
+                }
+            }
+        }
+    ]
+}

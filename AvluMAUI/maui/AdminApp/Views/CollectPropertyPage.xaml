@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · CollectPropertyPage — Tahsilat: Mülk Seç -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="Avlu.AdminApp.Views.CollectPropertyPage"
+             Title="Tahsilat">
+    <Grid Padding="20,20,20,0" RowDefinitions="Auto,*" RowSpacing="14">
+        <Border Padding="14,0" HeightRequest="44" StrokeThickness="1.5"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource WhiteAlpha04}}"
+                Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource WhiteAlpha12}}">
+            <Border.StrokeShape><shapes:RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+            <Entry Placeholder="Blok, daire no veya isim ara" VerticalOptions="Center" />
+        </Border>
+        <CollectionView Grid.Row="1" x:Name="DebtorsList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="0,0,0,8" Padding="14" StrokeThickness="1"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource SurfaceDark}}"
+                            Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource LineDark}}">
+                        <Border.StrokeShape><shapes:RoundRectangle CornerRadius="14" /></Border.StrokeShape>
+                        <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnPropertyTapped" CommandParameter="{Binding}" /></Border.GestureRecognizers>
+                        <Grid ColumnDefinitions="42,*,Auto" ColumnSpacing="12">
+                            <Border StrokeThickness="0" BackgroundColor="{AppThemeBinding Light={StaticResource LineSoft}, Dark={StaticResource WhiteAlpha06}}">
+                                <Border.StrokeShape><shapes:RoundRectangle CornerRadius="11" /></Border.StrokeShape>
+                                <Label Text="{Binding BlockUnit}" FontFamily="{StaticResource FontInterSemi}" FontSize="13" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1">
+                                <Label Text="{Binding TitleLine}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                <Label Text="{Binding Owner}" Style="{StaticResource Caption}" FontSize="12" />
+                            </VerticalStackLayout>
+                            <Label Grid.Column="2" Text="{Binding DebtDisplay}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" VerticalOptions="Center" TextColor="{StaticResource Danger}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

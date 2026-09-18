@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · ReportsPage — Gelir/Gider · Tahsilat Oranı · Borçlular sekmeli -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Avlu.Controls"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="Avlu.AdminApp.Views.ReportsPage"
+             Title="Raporlar">
+    <Grid Padding="20,20,20,0" RowDefinitions="Auto,*" RowSpacing="18">
+        <Grid ColumnDefinitions="*,*,*" ColumnSpacing="4" Padding="4" BackgroundColor="{AppThemeBinding Light={StaticResource LineSoft}, Dark={StaticResource WhiteAlpha04}}">
+            <RadioButton Grid.Column="0" Content="Gelir/Gider" GroupName="reportTab" IsChecked="True" CheckedChanged="OnTabChanged" />
+            <RadioButton Grid.Column="1" Content="Tahsilat Oranı" GroupName="reportTab" CheckedChanged="OnTabChanged" />
+            <RadioButton Grid.Column="2" Content="Borçlular" GroupName="reportTab" CheckedChanged="OnTabChanged" />
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <Grid>
+                <!-- Sekme 0: Gelir/Gider -->
+                <VerticalStackLayout x:Name="IncomeExpenseTab" Spacing="16">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Son 4 Ay" Style="{StaticResource Caption}" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Text="Net: 72.200,00 ₺" FontFamily="{StaticResource FontInterSemi}" FontSize="14" TextColor="{StaticResource Success}" />
+                    </Grid>
+                    <!-- Basit çubuk grafik yerine gerçek projede SkiaSharp/Microcharts kullan -->
+                    <Label Text="[Gelir/Gider çubuk grafiği — Microcharts önerilir]" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" HorizontalTextAlignment="Center" Margin="0,20,0,20" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <controls:SummaryCard Label="TOPLAM GELİR" Value="319.250,00 ₺" />
+                        <controls:SummaryCard Grid.Column="1" Label="TOPLAM GİDER" Value="59.050,00 ₺" />
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- Sekme 1: Tahsilat Oranı -->
+                <VerticalStackLayout x:Name="CollectionRateTab" Spacing="12" IsVisible="False">
+                    <Border Padding="14" StrokeThickness="1" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}" Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource LineDark}}">
+                        <Border.StrokeShape><shapes:RoundRectangle CornerRadius="14" /></Border.StrokeShape>
+                        <VerticalStackLayout Spacing="8">
+                            <Grid ColumnDefinitions="*,Auto"><Label Text="Temmuz 2026" FontFamily="{StaticResource FontInterSemi}" FontSize="13" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" /><Label Grid.Column="1" Text="%78" FontFamily="{StaticResource FontInterSemi}" FontSize="13" TextColor="{AppThemeBinding Light={StaticResource Navy}, Dark={StaticResource Accent}}" /></Grid>
+                            <controls:ProgressBarView Percent="78" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Padding="14" StrokeThickness="1" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}" Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource LineDark}}">
+                        <Border.StrokeShape><shapes:RoundRectangle CornerRadius="14" /></Border.StrokeShape>
+                        <VerticalStackLayout Spacing="8">
+                            <Grid ColumnDefinitions="*,Auto"><Label Text="Haziran 2026" FontFamily="{StaticResource FontInterSemi}" FontSize="13" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" /><Label Grid.Column="1" Text="%84" FontFamily="{StaticResource FontInterSemi}" FontSize="13" TextColor="{AppThemeBinding Light={StaticResource Navy}, Dark={StaticResource Accent}}" /></Grid>
+                            <controls:ProgressBarView Percent="84" />
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Sekme 2: Borçlular -->
+                <CollectionView x:Name="DebtorsListRep" IsVisible="False">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="14,13" ColumnDefinitions="*,Auto" Margin="0,0,0,8" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Unit}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                    <Label Text="{Binding Owner}" Style="{StaticResource Caption}" FontSize="12" />
+                                </VerticalStackLayout>
+                                <Label Grid.Column="1" Text="{Binding DebtDisplay}" FontFamily="{StaticResource FontInterSemi}" FontSize="14" VerticalOptions="Center" TextColor="{StaticResource Danger}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

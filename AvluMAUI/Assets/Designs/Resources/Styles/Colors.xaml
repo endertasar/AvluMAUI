@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Avlu · Brand Palette
+  Light + Dark variants as AppThemeBinding-friendly resources.
+  Kullanım:  BackgroundColor="{AppThemeBinding Light={StaticResource Bg}, Dark={StaticResource BgDark}}"
+  Ya da:    BackgroundColor="{StaticResource Navy}"   (tema-bağımsız sabit)
+-->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Brand / Marka -->
+    <Color x:Key="Navy">#0E2A47</Color>
+    <Color x:Key="NavyDeep">#081B30</Color>
+    <Color x:Key="NavySoft">#1E4066</Color>
+    <Color x:Key="Accent">#C8A15A</Color>
+    <!-- Pirinç, sıcak dokunuş -->
+    <Color x:Key="AccentSoft">#EFE3C6</Color>
+
+    <!-- Ink / metin -->
+    <Color x:Key="Ink">#0B1524</Color>
+    <Color x:Key="Sub">#5C6A7E</Color>
+    <Color x:Key="InkDark">#EAEEF5</Color>
+    <Color x:Key="SubDark">#8A9AB3</Color>
+
+    <!-- Surface / yüzey -->
+    <Color x:Key="Surface">#FFFFFF</Color>
+    <Color x:Key="Bg">#F6F7FA</Color>
+    <Color x:Key="BgWarm">#FBF9F5</Color>
+    <Color x:Key="Line">#E4E8EF</Color>
+    <Color x:Key="LineSoft">#F0F3F8</Color>
+
+    <Color x:Key="SurfaceDark">#111C2E</Color>
+    <Color x:Key="BgDark">#0B1524</Color>
+    <Color x:Key="LineDark">#223148</Color>
+
+    <!-- Semantic -->
+    <Color x:Key="Success">#2E7D57</Color>
+    <Color x:Key="Danger">#B3261E</Color>
+
+    <!-- Transparan varyantlar (dark input bg vs.) -->
+    <Color x:Key="WhiteAlpha04">#0AFFFFFF</Color>
+    <Color x:Key="WhiteAlpha08">#14FFFFFF</Color>
+    <Color x:Key="WhiteAlpha12">#1FFFFFFF</Color>
+
+</ResourceDictionary>

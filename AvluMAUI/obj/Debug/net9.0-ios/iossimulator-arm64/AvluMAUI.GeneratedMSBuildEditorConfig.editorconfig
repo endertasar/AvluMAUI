@@ -1,0 +1,419 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.MvvmToolkitEnableINotifyPropertyChangingSupport = true
+build_property.TargetFramework = net9.0-ios
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v9.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AvluMAUI
+build_property.ProjectDir = /Users/tasar/AvluMAUI/AvluMAUI/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[/Users/tasar/AvluMAUI/AvluMAUI/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/AdminShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.AdminShell.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/AdminShell.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/AdminShell.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/CollectDebtPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.CollectDebtPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/CollectDebtPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/CollectDebtPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/CollectFormPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.CollectFormPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/CollectFormPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/CollectFormPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/CollectPropertyPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.CollectPropertyPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/CollectPropertyPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/CollectPropertyPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/CollectSuccessPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.CollectSuccessPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/CollectSuccessPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/CollectSuccessPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/DashboardPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.DashboardPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/DashboardPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/DashboardPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/DuesDefinitionPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.DuesDefinitionPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/DuesDefinitionPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/DuesDefinitionPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/ExpenseFormPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.ExpenseFormPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/ExpenseFormPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/ExpenseFormPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/ExpensesListPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.ExpensesListPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/ExpensesListPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/ExpensesListPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/ExtraPaymentDetailPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.ExtraPaymentDetailPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/ExtraPaymentDetailPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/ExtraPaymentDetailPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/ExtraPaymentFormPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.ExtraPaymentFormPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/ExtraPaymentFormPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/ExtraPaymentFormPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/ExtraPaymentsListPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.ExtraPaymentsListPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/ExtraPaymentsListPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/ExtraPaymentsListPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/MorePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.MorePage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/MorePage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/MorePage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/NotificationSendPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.NotificationSendPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/NotificationSendPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/NotificationSendPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/PropertyDetailPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.PropertyDetailPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/PropertyDetailPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/PropertyDetailPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/PropertyFormPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.PropertyFormPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/PropertyFormPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/PropertyFormPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/PropertyListPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.PropertyListPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/PropertyListPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/PropertyListPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/ReportsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.ReportsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/ReportsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/ReportsPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/SubUserFormPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.SubUserFormPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/SubUserFormPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/SubUserFormPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AdminApp/Views/SubUsersPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AdminApp.Views.SubUsersPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AdminApp/Views/SubUsersPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AdminApp/Views/SubUsersPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.App.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/App.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/App.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/AppShell.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/ResidentApp/ResidentShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.ResidentApp.ResidentShell.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/ResidentApp/ResidentShell.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/ResidentApp/ResidentShell.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/ResidentApp/Views/DebtsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.ResidentApp.Views.DebtsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/ResidentApp/Views/DebtsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/ResidentApp/Views/DebtsPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/ResidentApp/Views/NotificationDetailPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.ResidentApp.Views.NotificationDetailPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/ResidentApp/Views/NotificationDetailPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/ResidentApp/Views/NotificationDetailPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/ResidentApp/Views/NotificationsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.ResidentApp.Views.NotificationsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/ResidentApp/Views/NotificationsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/ResidentApp/Views/NotificationsPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/ResidentApp/Views/PaymentsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.ResidentApp.Views.PaymentsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/ResidentApp/Views/PaymentsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/ResidentApp/Views/PaymentsPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/ResidentApp/Views/ProfilePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.ResidentApp.Views.ProfilePage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/ResidentApp/Views/ProfilePage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/ResidentApp/Views/ProfilePage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/ResidentApp/Views/PropertySelectionPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.ResidentApp.Views.PropertySelectionPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/ResidentApp/Views/PropertySelectionPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/ResidentApp/Views/PropertySelectionPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/ResidentApp/Views/ResidentSignupPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.ResidentApp.Views.ResidentSignupPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/ResidentApp/Views/ResidentSignupPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/ResidentApp/Views/ResidentSignupPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/Resources/Styles/Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/Resources/Styles/Colors.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/Resources/Styles/Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/Resources/Styles/Styles.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/Resources/Styles/Templates.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.Resources.Styles.Templates.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/Resources/Styles/Templates.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/Resources/Styles/Templates.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/Views/ForgotPasswordPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.Views.ForgotPasswordPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/Views/ForgotPasswordPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/Views/ForgotPasswordPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/Views/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.Views.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/Views/LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/Views/LoginPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/Views/OtpPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.Views.OtpPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/Views/OtpPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/Views/OtpPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/Views/SignupPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.Views.SignupPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/Views/SignupPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/Views/SignupPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/maui/Views/SplashPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.maui.Views.SplashPage.xaml
+build_metadata.AdditionalFiles.TargetPath = maui/Views/SplashPage.xaml
+build_metadata.AdditionalFiles.RelativePath = maui/Views/SplashPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Colors.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Auth/ForgotPasswordPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Auth.ForgotPasswordPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Auth/ForgotPasswordPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Auth/ForgotPasswordPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Auth/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Auth.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Auth/LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Auth/LoginPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Auth/SignupPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Auth.SignupPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Auth/SignupPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Auth/SignupPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Auth/SplashPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Auth.SplashPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Auth/SplashPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Auth/SplashPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Auth/TenantSelectPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Auth.TenantSelectPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Auth/TenantSelectPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Auth/TenantSelectPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Dashboard/DashboardPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Dashboard.DashboardPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Dashboard/DashboardPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Dashboard/DashboardPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Dues/BulkChargePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Dues.BulkChargePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Dues/BulkChargePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Dues/BulkChargePage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Dues/DuesDefinitionAddPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Dues.DuesDefinitionAddPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Dues/DuesDefinitionAddPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Dues/DuesDefinitionAddPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Dues/DuesDefinitionListPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Dues.DuesDefinitionListPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Dues/DuesDefinitionListPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Dues/DuesDefinitionListPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Dues/SingleChargePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Dues.SingleChargePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Dues/SingleChargePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Dues/SingleChargePage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Notifications/NotificationHistoryPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Notifications.NotificationHistoryPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Notifications/NotificationHistoryPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Notifications/NotificationHistoryPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Notifications/NotificationSendPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Notifications.NotificationSendPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Notifications/NotificationSendPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Notifications/NotificationSendPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Payments/PaymentCollectPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Payments.PaymentCollectPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Payments/PaymentCollectPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Payments/PaymentCollectPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Payments/PaymentListPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Payments.PaymentListPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Payments/PaymentListPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Payments/PaymentListPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Properties/AssignResidentPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Properties.AssignResidentPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Properties/AssignResidentPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Properties/AssignResidentPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Properties/PropertyAddEditPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Properties.PropertyAddEditPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Properties/PropertyAddEditPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Properties/PropertyAddEditPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Properties/PropertyDetailPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Properties.PropertyDetailPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Properties/PropertyDetailPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Properties/PropertyDetailPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Properties/PropertyListPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Properties.PropertyListPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Properties/PropertyListPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Properties/PropertyListPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Reports/DebtAgingPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Reports.DebtAgingPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Reports/DebtAgingPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Reports/DebtAgingPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Reports/MonthlyCollectionPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Reports.MonthlyCollectionPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Reports/MonthlyCollectionPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Reports/MonthlyCollectionPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Reports/OverduePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Reports.OverduePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Reports/OverduePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Reports/OverduePage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Reports/PropertySummaryPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Reports.PropertySummaryPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Reports/PropertySummaryPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Reports/PropertySummaryPage.xaml
+
+[/Users/tasar/AvluMAUI/AvluMAUI/Views/Reports/ReportsMenuPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AvluMAUI.Views.Reports.ReportsMenuPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/Reports/ReportsMenuPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/Reports/ReportsMenuPage.xaml

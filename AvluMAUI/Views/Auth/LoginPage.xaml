@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Auth"
+             x:Class="AvluMAUI.Views.Auth.LoginPage"
+             x:DataType="vm:LoginViewModel"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="32,64,32,32">
+
+            <!-- Logo -->
+            <Frame Style="{StaticResource Card}"
+                   HorizontalOptions="Center" WidthRequest="72" HeightRequest="72"
+                   BackgroundColor="{StaticResource Navy}" Padding="12" Margin="0,0,0,32">
+                <Label Text="A" Style="{StaticResource H1}"
+                       TextColor="{StaticResource Accent}"
+                       HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Frame>
+
+            <Label Text="Avlu Yönetici" Style="{StaticResource H1}"
+                   HorizontalOptions="Center" Margin="0,0,0,4"/>
+            <Label Text="Site yönetiminize giriş yapın"
+                   Style="{StaticResource Body}"
+                   TextColor="{StaticResource TextMuted}"
+                   HorizontalOptions="Center" Margin="0,0,0,40"/>
+
+            <!-- Error -->
+            <Frame BackgroundColor="{StaticResource DangerLight}"
+                   BorderColor="{StaticResource Danger}"
+                   CornerRadius="10" Padding="12,8"
+                   IsVisible="{Binding ErrorMessage, Converter={StaticResource BoolToVisibility}}"
+                   Margin="0,0,0,16">
+                <Label Text="{Binding ErrorMessage}"
+                       TextColor="{StaticResource Danger}"
+                       Style="{StaticResource Caption}"/>
+            </Frame>
+
+            <!-- Site Kullanıcı Adı -->
+            <Label Text="Site Kullanıcı Adı" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Entry Placeholder="sitekodu"
+                       Text="{Binding SiteUsername}"
+                       Style="{StaticResource FieldEntry}"
+                       ReturnType="Next"
+                       Keyboard="Text"/>
+            </Border>
+
+            <!-- Username -->
+            <Label Text="Kullanıcı Adı" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Entry Placeholder="kullanici.adi"
+                       Text="{Binding Username}"
+                       Style="{StaticResource FieldEntry}"
+                       ReturnType="Next"
+                       Keyboard="Email"/>
+            </Border>
+
+            <!-- Password -->
+            <Label Text="Şifre" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,32">
+                <Entry Placeholder="••••••••"
+                       Text="{Binding Password}"
+                       Style="{StaticResource FieldEntry}"
+                       IsPassword="True"
+                       ReturnType="Done"
+                       ReturnCommand="{Binding LoginCommand}"/>
+            </Border>
+
+            <!-- Login Button -->
+            <Button Text="Giriş Yap"
+                    Command="{Binding LoginCommand}"
+                    Style="{StaticResource PrimaryButton}"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBool}}"/>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Navy}"
+                               HorizontalOptions="Center"
+                               Margin="0,16,0,0"/>
+
+            <!-- Kayıt ol linki -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="4" Margin="0,28,0,0">
+                <Label Text="Siteniz kayıtlı değil mi?"
+                       Style="{StaticResource Caption}"
+                       TextColor="{StaticResource TextMuted}"
+                       VerticalOptions="Center" />
+                <Label Text="Kayıt Ol"
+                       Style="{StaticResource Caption}"
+                       FontFamily="{StaticResource FontInterSemi}"
+                       TextColor="{StaticResource Navy}"
+                       VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToSignupCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

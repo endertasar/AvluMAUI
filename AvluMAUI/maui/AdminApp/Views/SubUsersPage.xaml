@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · SubUsersPage -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Avlu.Controls"
+             x:Class="Avlu.AdminApp.Views.SubUsersPage"
+             Title="Alt Kullanıcılar">
+    <Grid Padding="20,20,20,0" RowDefinitions="Auto,*" RowSpacing="14">
+        <Button Text="+ Ekle" HorizontalOptions="End" FontFamily="{StaticResource FontInterSemi}" FontSize="12.5"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Navy}, Dark={StaticResource Accent}}"
+                TextColor="{AppThemeBinding Light=White, Dark={StaticResource NavyDeep}}"
+                CornerRadius="10" HeightRequest="34" Padding="14,0" Clicked="OnAddTapped" />
+        <CollectionView Grid.Row="1" x:Name="UsersList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="14,13" ColumnDefinitions="*,Auto" Margin="0,0,0,8" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}" Opacity="{Binding OpacityValue}">
+                        <VerticalStackLayout>
+                            <HorizontalStackLayout Spacing="8">
+                                <Label Text="{Binding Name}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                <controls:Badge Text="{Binding RoleLabel}" ToneValue="{Binding RoleTone}" />
+                            </HorizontalStackLayout>
+                            <Label Text="{Binding Username}" Style="{StaticResource Caption}" FontSize="12" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="1" Text="{Binding ActiveLabel}" FontFamily="{StaticResource FontInterSemi}" FontSize="11.5" VerticalOptions="Center" TextColor="{Binding ActiveColor}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

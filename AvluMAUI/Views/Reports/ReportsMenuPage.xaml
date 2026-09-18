@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Reports"
+             x:Class="AvluMAUI.Views.Reports.ReportsMenuPage"
+             x:DataType="vm:ReportsMenuViewModel"
+             Title="Daha Fazla">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="12" Padding="16">
+
+            <Label Text="Raporlar" Style="{StaticResource H2}" Margin="0,8,0,4"/>
+
+            <Border Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="*,Auto" Padding="16">
+                    <Label Grid.Column="0" Text="Aylık Tahsilat Raporu" Style="{StaticResource Body}"/>
+                    <Label Grid.Column="1" Text="›" Style="{StaticResource H2}" TextColor="{StaticResource TextMuted}"/>
+                </Grid>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMonthlyCollectionTapped"/>
+                </Border.GestureRecognizers>
+            </Border>
+
+            <Border Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="*,Auto" Padding="16">
+                    <Label Grid.Column="0" Text="Borç Yaşlandırma" Style="{StaticResource Body}"/>
+                    <Label Grid.Column="1" Text="›" Style="{StaticResource H2}" TextColor="{StaticResource TextMuted}"/>
+                </Grid>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDebtAgingTapped"/>
+                </Border.GestureRecognizers>
+            </Border>
+
+            <Border Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="*,Auto" Padding="16">
+                    <Label Grid.Column="0" Text="Daire Özeti" Style="{StaticResource Body}"/>
+                    <Label Grid.Column="1" Text="›" Style="{StaticResource H2}" TextColor="{StaticResource TextMuted}"/>
+                </Grid>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnPropertySummaryTapped"/>
+                </Border.GestureRecognizers>
+            </Border>
+
+            <Border Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="*,Auto" Padding="16">
+                    <Label Grid.Column="0" Text="Gecikmiş Ödemeler" Style="{StaticResource Body}"/>
+                    <Label Grid.Column="1" Text="›" Style="{StaticResource H2}" TextColor="{StaticResource TextMuted}"/>
+                </Grid>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnOverdueTapped"/>
+                </Border.GestureRecognizers>
+            </Border>
+
+            <Label Text="Bildirimler" Style="{StaticResource H2}" Margin="0,16,0,4"/>
+
+            <Border Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="*,Auto" Padding="16">
+                    <Label Grid.Column="0" Text="Bildirim Gönder" Style="{StaticResource Body}"/>
+                    <Label Grid.Column="1" Text="›" Style="{StaticResource H2}" TextColor="{StaticResource TextMuted}"/>
+                </Grid>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSendNotificationTapped"/>
+                </Border.GestureRecognizers>
+            </Border>
+
+            <Border Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="*,Auto" Padding="16">
+                    <Label Grid.Column="0" Text="Bildirim Geçmişi" Style="{StaticResource Body}"/>
+                    <Label Grid.Column="1" Text="›" Style="{StaticResource H2}" TextColor="{StaticResource TextMuted}"/>
+                </Grid>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnNotificationHistoryTapped"/>
+                </Border.GestureRecognizers>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

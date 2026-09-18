@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Properties"
+             x:Class="AvluMAUI.Views.Properties.AssignResidentPage"
+             x:DataType="vm:AssignResidentViewModel"
+             Title="Kişi Bilgileri">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="16">
+
+            <Label Text="{Binding ErrorMessage}" TextColor="{StaticResource Danger}"
+                   Style="{StaticResource Caption}"
+                   IsVisible="{Binding ErrorMessage, Converter={StaticResource BoolToVisibility}}"
+                   Margin="0,0,0,12"/>
+
+            <Label Text="Mülk Sahibi Adı" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Entry Placeholder="Ad Soyad" Text="{Binding OwnerName}" Style="{StaticResource FieldEntry}"/>
+            </Border>
+
+            <Label Text="Mülk Sahibi Telefon" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Entry Placeholder="05xx xxx xx xx" Text="{Binding OwnerPhone}"
+                       Keyboard="Telephone" Style="{StaticResource FieldEntry}"/>
+            </Border>
+
+            <Label Text="Sakin Adı" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Entry Placeholder="Ad Soyad" Text="{Binding ResidentName}" Style="{StaticResource FieldEntry}"/>
+            </Border>
+
+            <Label Text="Sakin Telefon" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Entry Placeholder="05xx xxx xx xx" Text="{Binding ResidentPhone}"
+                       Keyboard="Telephone" Style="{StaticResource FieldEntry}"/>
+            </Border>
+
+            <Label Text="Aidat Sorumlusu" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,32">
+                <Picker ItemsSource="{Binding ResponsibleTypes}"
+                        SelectedItem="{Binding DuesResponsible}"
+                        Style="{StaticResource FieldPicker}"/>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Button Grid.Column="0" Text="İptal"
+                        Command="{Binding CancelCommand}"
+                        Style="{StaticResource SecondaryButton}"/>
+                <Button Grid.Column="1" Text="Kaydet"
+                        Command="{Binding SaveCommand}"
+                        Style="{StaticResource PrimaryButton}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBool}}"/>
+            </Grid>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Navy}" HorizontalOptions="Center" Margin="0,12"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

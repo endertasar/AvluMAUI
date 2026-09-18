@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ResidentApp Shell — 4 alt tab: Borçlarım, Ödemelerim, Bildirimler, Profil -->
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:Avlu.ResidentApp.Views"
+       x:Class="Avlu.ResidentApp.ResidentShell"
+       Shell.FlyoutBehavior="Disabled"
+       Title="Avlu">
+    <TabBar>
+        <ShellContent Title="Borçlarım" Route="debts" ContentTemplate="{DataTemplate views:DebtsPage}" />
+        <ShellContent Title="Ödemelerim" Route="payments" ContentTemplate="{DataTemplate views:PaymentsPage}" />
+        <ShellContent Title="Bildirimler" Route="notifications" ContentTemplate="{DataTemplate views:NotificationsPage}" />
+        <ShellContent Title="Profil" Route="profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
+    </TabBar>
+</Shell>

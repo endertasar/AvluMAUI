@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ResidentApp · PropertySelectionPage -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Avlu.Controls"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="Avlu.ResidentApp.Views.PropertySelectionPage"
+             Shell.NavBarIsVisible="False">
+    <Grid Padding="20,54,20,28" RowDefinitions="Auto,*,Auto" RowSpacing="18">
+        <VerticalStackLayout Grid.Row="0" Spacing="6">
+            <Label Style="{StaticResource H2}" Text="Hangi mülk?" />
+            <Label Style="{StaticResource Body}" FontSize="13.5" Text="Telefon numaranla eşleşen birden fazla mülk bulduk. Devam etmek için birini seç." />
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1" x:Name="MatchesList" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="0,0,0,10" Padding="16" StrokeThickness="1.5"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource SurfaceDark}}"
+                            Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource LineDark}}">
+                        <Border.StrokeShape><shapes:RoundRectangle CornerRadius="16" /></Border.StrokeShape>
+                        <VerticalStackLayout Spacing="10">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Site}" FontFamily="{StaticResource FontInterSemi}" FontSize="14.5" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                    <Label Text="{Binding Unit}" Style="{StaticResource Caption}" FontSize="12.5" />
+                                </VerticalStackLayout>
+                                <controls:Badge Grid.Column="1" Text="{Binding RoleLabel}" ToneValue="{Binding RoleTone}" />
+                            </Grid>
+                            <Label Text="{Binding DebtDisplay}" FontFamily="{StaticResource FontInterSemi}" FontSize="13" TextColor="{Binding DebtColor}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label Grid.Row="2" Text="Bu seçimi profil sayfasından sonra değiştirebilirsin." Style="{StaticResource Caption}" HorizontalTextAlignment="Center" FontSize="11.5" />
+    </Grid>
+</ContentPage>

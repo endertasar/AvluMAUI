@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · NotificationSendPage -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Avlu.AdminApp.Views.NotificationSendPage"
+             Title="Bildirim Gönder">
+    <ScrollView>
+        <VerticalStackLayout Padding="20,20,20,28" Spacing="14">
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="BAŞLIK" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Text="Ağustos Aidat Hatırlatması" /></Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="MESAJ" />
+                <Editor HeightRequest="100" AutoSize="TextChanges"
+                        Text="Değerli komşumuz, Ağustos ayı aidat ödemenizi 5 Ağustos'a kadar yapmanızı rica ederiz."
+                        FontFamily="{StaticResource FontInter}" FontSize="14"
+                        TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="HEDEF" />
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="4" Padding="4" BackgroundColor="{AppThemeBinding Light={StaticResource LineSoft}, Dark={StaticResource WhiteAlpha04}}">
+                    <RadioButton Grid.Column="0" Content="Herkes" GroupName="target" IsChecked="True" />
+                    <RadioButton Grid.Column="1" Content="Mülk Seç" GroupName="target" />
+                    <RadioButton Grid.Column="2" Content="Sakin Seç" GroupName="target" />
+                </Grid>
+            </VerticalStackLayout>
+            <Button Text="Bildirimi Gönder" Style="{StaticResource PrimaryButton}" Clicked="OnSendTapped" />
+
+            <Grid ColumnDefinitions="*,Auto" Margin="0,10,0,0">
+                <Label Text="Gönderilenler" FontFamily="{StaticResource FontInterSemi}" FontSize="13" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                <Label Grid.Column="1" Text="Tümü" Style="{StaticResource Link}" />
+            </Grid>
+            <CollectionView x:Name="SentList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="14,13" ColumnDefinitions="*,Auto" Margin="0,0,0,8" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Title}" FontFamily="{StaticResource FontInterSemi}" FontSize="13" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                <Label Text="{Binding Date}" Style="{StaticResource Caption}" FontSize="11.5" />
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1" Text="{Binding CountDisplay}" Style="{StaticResource Caption}" FontSize="12" VerticalOptions="Center" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

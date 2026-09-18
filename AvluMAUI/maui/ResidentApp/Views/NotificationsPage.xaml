@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ResidentApp · NotificationsPage -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Avlu.Controls"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="Avlu.ResidentApp.Views.NotificationsPage"
+             Title="Bildirimler">
+    <controls:DataStateView x:Name="StateHost" CurrentState="Content" EmptyTitle="Bildirim yok" EmptySub="Yeni duyuru ve hatırlatmalar burada görünecek.">
+        <controls:DataStateView.ContentViewContent>
+            <CollectionView x:Name="NotifList" Margin="20,20,20,28">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="0,0,0,8" Padding="14" StrokeThickness="0"
+                                BackgroundColor="{Binding CardBg}">
+                            <Border.StrokeShape><shapes:RoundRectangle CornerRadius="14" /></Border.StrokeShape>
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnNotificationTapped" /></Border.GestureRecognizers>
+                            <Grid ColumnDefinitions="Auto,*">
+                                <BoxView WidthRequest="7" HeightRequest="7" CornerRadius="4" Color="{StaticResource Accent}" IsVisible="{Binding Unread}" VerticalOptions="Start" Margin="0,6,10,0" />
+                                <VerticalStackLayout Grid.Column="1">
+                                    <Grid ColumnDefinitions="*,Auto">
+                                        <Label Text="{Binding Title}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                        <Label Grid.Column="1" Text="{Binding Time}" FontSize="11" TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+                                    </Grid>
+                                    <Label Text="{Binding Body}" FontSize="12.5" Margin="0,4,0,0" TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </controls:DataStateView.ContentViewContent>
+    </controls:DataStateView>
+</ContentPage>

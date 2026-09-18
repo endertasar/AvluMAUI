@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Dues"
+             xmlns:models="clr-namespace:AvluMAUI.Models.Dues"
+             x:Class="AvluMAUI.Views.Dues.BulkChargePage"
+             x:DataType="vm:BulkChargeViewModel"
+             Title="Toplu Aidat Oluştur">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="16">
+
+            <Label Text="{Binding ErrorMessage}" TextColor="{StaticResource Danger}"
+                   Style="{StaticResource Caption}"
+                   IsVisible="{Binding ErrorMessage, Converter={StaticResource BoolToVisibility}}"
+                   Margin="0,0,0,12"/>
+
+            <Label Text="Yıl" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Picker ItemsSource="{Binding AvailableYears}"
+                        SelectedItem="{Binding Year}"
+                        Style="{StaticResource FieldPicker}"/>
+            </Border>
+
+            <Label Text="Ay" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Picker ItemsSource="{Binding Months}"
+                        SelectedItem="{Binding Month}"
+                        Style="{StaticResource FieldPicker}"/>
+            </Border>
+
+            <Label Text="Aidat Tanımı" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,32">
+                <Picker ItemsSource="{Binding Definitions}"
+                        SelectedItem="{Binding SelectedDefinition}"
+                        ItemDisplayBinding="{Binding Name}"
+                        Style="{StaticResource FieldPicker}"/>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Button Grid.Column="0" Text="İptal"
+                        Command="{Binding CancelCommand}"
+                        Style="{StaticResource SecondaryButton}"/>
+                <Button Grid.Column="1" Text="Oluştur"
+                        Command="{Binding ApplyCommand}"
+                        Style="{StaticResource PrimaryButton}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBool}}"/>
+            </Grid>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Navy}" HorizontalOptions="Center" Margin="0,16"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

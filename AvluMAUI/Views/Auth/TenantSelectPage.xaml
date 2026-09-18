@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Auth"
+             xmlns:models="clr-namespace:AvluMAUI.Models.Tenant"
+             x:Class="AvluMAUI.Views.Auth.TenantSelectPage"
+             x:DataType="vm:TenantSelectViewModel"
+             Shell.NavBarIsVisible="False"
+             Title="Site Seçin">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Header -->
+        <VerticalStackLayout Grid.Row="0" Padding="32,48,32,24">
+            <Label Text="Site Seçin" Style="{StaticResource H2}" Margin="0,0,0,8"/>
+            <Label Text="Kayıtlı olduğunuz siteyi seçin"
+                   Style="{StaticResource Body}"
+                   TextColor="{StaticResource TextMuted}"/>
+        </VerticalStackLayout>
+
+        <!-- List -->
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Tenants}"
+                        Margin="16,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:TenantDto">
+                    <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                        <Grid ColumnDefinitions="*,Auto" Padding="16">
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="{Binding TenantName}"
+                                       Style="{StaticResource Body}"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding TenantCode}"
+                                       Style="{StaticResource Caption}"
+                                       TextColor="{StaticResource TextMuted}"/>
+                            </VerticalStackLayout>
+                            <Button Grid.Column="1"
+                                    Text="Seç"
+                                    Style="{StaticResource PrimaryButton}"
+                                    WidthRequest="80"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TenantSelectViewModel}}, Path=SelectCommand}"
+                                    CommandParameter="{Binding .}"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Dues"
+             xmlns:propModels="clr-namespace:AvluMAUI.Models.Property"
+             x:Class="AvluMAUI.Views.Dues.SingleChargePage"
+             x:DataType="vm:SingleChargeViewModel"
+             Title="Tekil Borç Ekle">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="16">
+
+            <Label Text="{Binding ErrorMessage}" TextColor="{StaticResource Danger}"
+                   Style="{StaticResource Caption}"
+                   IsVisible="{Binding ErrorMessage, Converter={StaticResource BoolToVisibility}}"
+                   Margin="0,0,0,12"/>
+
+            <Label Text="Daire *" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Picker ItemsSource="{Binding Properties}"
+                        SelectedItem="{Binding SelectedProperty}"
+                        ItemDisplayBinding="{Binding DisplayName}"
+                        Style="{StaticResource FieldPicker}"/>
+            </Border>
+
+            <Label Text="Dönem (YYYYAA) *" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Entry Placeholder="202507" Text="{Binding Period}" Keyboard="Numeric" Style="{StaticResource FieldEntry}"/>
+            </Border>
+
+            <Label Text="Tutar (₺) *" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Entry Placeholder="500" Text="{Binding Amount}" Keyboard="Numeric" Style="{StaticResource FieldEntry}"/>
+            </Border>
+
+            <Label Text="Vade Tarihi (opsiyonel)" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,32">
+                <Entry Placeholder="2025-07-31" Text="{Binding DueDate}" Style="{StaticResource FieldEntry}"/>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Button Grid.Column="0" Text="İptal"
+                        Command="{Binding CancelCommand}"
+                        Style="{StaticResource SecondaryButton}"/>
+                <Button Grid.Column="1" Text="Ekle"
+                        Command="{Binding SaveCommand}"
+                        Style="{StaticResource PrimaryButton}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBool}}"/>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

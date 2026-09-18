@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Auth"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="AvluMAUI.Views.Auth.SignupPage"
+             x:DataType="vm:SignupViewModel"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <Grid Padding="24,54,24,28" RowDefinitions="Auto,Auto,Auto,Auto,*,Auto" RowSpacing="0">
+
+            <!-- 0 · Header: geri butonu + adım göstergesi -->
+            <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" Margin="0,0,0,28" VerticalOptions="Center">
+
+                <Border Grid.Column="0" WidthRequest="36" HeightRequest="36" Padding="0"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource WhiteAlpha08}}"
+                        Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource LineDark}}"
+                        StrokeThickness="1">
+                    <Border.StrokeShape><shapes:RoundRectangle CornerRadius="10" /></Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BackCommand}" />
+                    </Border.GestureRecognizers>
+                    <Label Text="‹" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center"
+                           TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                </Border>
+
+                <!-- Adım çubukları -->
+                <HorizontalStackLayout Grid.Column="2" Spacing="6" VerticalOptions="Center">
+                    <BoxView WidthRequest="28" HeightRequest="4" CornerRadius="2"
+                             Color="{StaticResource Navy}" />
+                    <BoxView WidthRequest="28" HeightRequest="4" CornerRadius="2"
+                             Color="{Binding Step2IndicatorColor}" />
+                </HorizontalStackLayout>
+            </Grid>
+
+            <!-- 1 · Başlık (adıma göre değişir) -->
+            <VerticalStackLayout Grid.Row="1" Spacing="6" Margin="0,0,0,22">
+                <Label Style="{StaticResource H2}" Text="{Binding StepTitle}" />
+                <Label Style="{StaticResource Body}" FontSize="14" Text="{Binding StepSubtitle}" />
+            </VerticalStackLayout>
+
+            <!-- 2 · Hata mesajı (her iki adımda ortak) -->
+            <Border Grid.Row="2"
+                    BackgroundColor="{StaticResource DangerLight}"
+                    Stroke="{StaticResource Danger}"
+                    StrokeThickness="1"
+                    IsVisible="{Binding ErrorMessage, Converter={StaticResource BoolToVisibility}}"
+                    Padding="12,8"
+                    Margin="0,0,0,12">
+                <Border.StrokeShape><shapes:RoundRectangle CornerRadius="10" /></Border.StrokeShape>
+                <Label Text="{Binding ErrorMessage}"
+                       TextColor="{StaticResource Danger}"
+                       Style="{StaticResource Caption}" />
+            </Border>
+
+            <!-- 3 · Form alanları -->
+            <VerticalStackLayout Grid.Row="3" Spacing="12">
+
+                <!-- ═══ ADIM 1: Site Bilgileri ═══ -->
+                <VerticalStackLayout IsVisible="{Binding IsStep1}" Spacing="12">
+
+                    <!-- Site Kullanıcı Adı -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Style="{StaticResource FieldLabel}" Text="SİTE KULLANICI ADI" />
+                        <Label Text="Harf, rakam ve tire kullanabilirsiniz. Örn: kadikoy-gunes"
+                               FontSize="11"
+                               TextColor="{StaticResource TextMuted}" />
+                        <Border Style="{StaticResource FieldBorder}">
+                            <Entry Style="{StaticResource FieldEntry}"
+                                   Text="{Binding SiteUsername}"
+                                   Placeholder="site-kodu"
+                                   ReturnType="Next" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Site Adı -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Style="{StaticResource FieldLabel}" Text="SİTE ADI" />
+                        <Border Style="{StaticResource FieldBorder}">
+                            <Entry Style="{StaticResource FieldEntry}"
+                                   Text="{Binding SiteName}"
+                                   Placeholder="Kadıköy Güneş Sitesi"
+                                   ReturnType="Next" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Adres (opsiyonel) -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Style="{StaticResource FieldLabel}" Text="ADRES (OPSİYONEL)" />
+                        <Border Style="{StaticResource FieldBorder}">
+                            <Entry Style="{StaticResource FieldEntry}"
+                                   Text="{Binding Address}"
+                                   Placeholder="Mahalle, ilçe, şehir"
+                                   ReturnType="Done" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+                <!-- ═══ ADIM 2: Hesap Bilgileri ═══ -->
+                <VerticalStackLayout IsVisible="{Binding IsStep2}" Spacing="12">
+
+                    <!-- Kullanıcı Adı -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Style="{StaticResource FieldLabel}" Text="KULLANICI ADI" />
+                        <Border Style="{StaticResource FieldBorder}">
+                            <Entry Style="{StaticResource FieldEntry}"
+                                   Text="{Binding Username}"
+                                   Placeholder="ahmet.yilmaz"
+                                   ReturnType="Next"
+                                   Keyboard="Text" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Ad Soyad (opsiyonel) -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Style="{StaticResource FieldLabel}" Text="AD SOYAD (OPSİYONEL)" />
+                        <Border Style="{StaticResource FieldBorder}">
+                            <Entry Style="{StaticResource FieldEntry}"
+                                   Text="{Binding FullName}"
+                                   Placeholder="Ahmet Yılmaz"
+                                   ReturnType="Next"
+                                   Keyboard="Text" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Şifre -->
+                    <VerticalStackLayout Spacing="6">
+                        <Label Style="{StaticResource FieldLabel}" Text="ŞİFRE" />
+                        <Border Style="{StaticResource FieldBorder}">
+                            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                                <Entry Grid.Column="0"
+                                       Style="{StaticResource FieldEntry}"
+                                       Text="{Binding Password}"
+                                       IsPassword="{Binding IsPasswordHidden}"
+                                       Placeholder="••••••••"
+                                       ReturnType="Done" />
+                                <ImageButton Grid.Column="1"
+                                             Source="eye.png"
+                                             BackgroundColor="Transparent"
+                                             HeightRequest="22" WidthRequest="22"
+                                             Command="{Binding TogglePasswordCommand}" />
+                            </Grid>
+                        </Border>
+
+                        <!-- Şifre gücü -->
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10" VerticalOptions="Center"
+                              IsVisible="{Binding IsPasswordStrengthVisible}">
+                            <Grid Grid.Column="0" ColumnDefinitions="*,*,*,*" ColumnSpacing="3" VerticalOptions="Center">
+                                <BoxView Grid.Column="0" HeightRequest="3" CornerRadius="2" Color="{Binding StrengthBar1}" />
+                                <BoxView Grid.Column="1" HeightRequest="3" CornerRadius="2" Color="{Binding StrengthBar2}" />
+                                <BoxView Grid.Column="2" HeightRequest="3" CornerRadius="2" Color="{Binding StrengthBar3}" />
+                                <BoxView Grid.Column="3" HeightRequest="3" CornerRadius="2" Color="{Binding StrengthBar4}" />
+                            </Grid>
+                            <Label Grid.Column="1" Text="{Binding PasswordStrengthLabel}" FontSize="11"
+                                   TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}"
+                                   VerticalOptions="Center" />
+                        </Grid>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+
+            <!-- 4 · Spacer -->
+            <BoxView Grid.Row="4" HeightRequest="14" Color="Transparent" />
+
+            <!-- 5 · CTA butonları -->
+            <VerticalStackLayout Grid.Row="5" Spacing="0">
+                <!-- Adım 1: İleri -->
+                <Button Style="{StaticResource PrimaryButton}" Text="İleri →"
+                        Command="{Binding NextStepCommand}"
+                        IsVisible="{Binding IsStep1}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBool}}" />
+
+                <!-- Adım 2: Kaydı Tamamla -->
+                <Button Style="{StaticResource PrimaryButton}" Text="Kaydı Tamamla"
+                        Command="{Binding RegisterCommand}"
+                        IsVisible="{Binding IsStep2}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBool}}" />
+
+                <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                   IsVisible="{Binding IsBusy}"
+                                   Color="{StaticResource Navy}"
+                                   HorizontalOptions="Center"
+                                   Margin="0,12,0,0" />
+            </VerticalStackLayout>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

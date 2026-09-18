@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Avlu · OtpPage
+  Geri, başlık, 6 haneli OTP kutuları (otomatik odak geçişi), tekrar gönder sayacı, Doğrula.
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="Avlu.Views.OtpPage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid Padding="24,54,24,28" RowDefinitions="Auto,Auto,Auto,Auto,Auto,*,Auto" RowSpacing="0">
+
+        <!-- 0 · Back -->
+        <Border Grid.Row="0" WidthRequest="36" HeightRequest="36" Padding="0"
+                HorizontalOptions="Start" Margin="0,0,0,28"
+                BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource WhiteAlpha08}}"
+                Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource LineDark}}"
+                StrokeThickness="1">
+            <Border.StrokeShape><shapes:RoundRectangle CornerRadius="10" /></Border.StrokeShape>
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackTapped" />
+            </Border.GestureRecognizers>
+            <Label Text="‹" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center"
+                   TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+        </Border>
+
+        <!-- 1 · Başlık -->
+        <Label Grid.Row="1" Style="{StaticResource H2}" Text="Doğrulama kodu" />
+
+        <!-- 2 · Açıklama -->
+        <Label Grid.Row="2" Style="{StaticResource Body}" FontSize="14" Margin="0,8,0,28">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="+90 555 123 45 67"
+                          FontFamily="{StaticResource FontInterSemi}"
+                          TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                    <Span Text=" numarasına gönderilen 6 haneli kodu gir." />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <!-- 3 · OTP kutuları -->
+        <HorizontalStackLayout Grid.Row="3" Spacing="10" HorizontalOptions="Center">
+            <Border x:Name="Box0" Style="{StaticResource OtpBox}">
+                <Entry x:Name="Otp0" Style="{StaticResource OtpEntry}" TextChanged="OnOtpChanged" />
+            </Border>
+            <Border x:Name="Box1" Style="{StaticResource OtpBox}">
+                <Entry x:Name="Otp1" Style="{StaticResource OtpEntry}" TextChanged="OnOtpChanged" />
+            </Border>
+            <Border x:Name="Box2" Style="{StaticResource OtpBox}">
+                <Entry x:Name="Otp2" Style="{StaticResource OtpEntry}" TextChanged="OnOtpChanged" />
+            </Border>
+            <Border x:Name="Box3" Style="{StaticResource OtpBox}">
+                <Entry x:Name="Otp3" Style="{StaticResource OtpEntry}" TextChanged="OnOtpChanged" />
+            </Border>
+            <Border x:Name="Box4" Style="{StaticResource OtpBox}">
+                <Entry x:Name="Otp4" Style="{StaticResource OtpEntry}" TextChanged="OnOtpChanged" />
+            </Border>
+            <Border x:Name="Box5" Style="{StaticResource OtpBox}">
+                <Entry x:Name="Otp5" Style="{StaticResource OtpEntry}" TextChanged="OnOtpChanged" />
+            </Border>
+        </HorizontalStackLayout>
+
+        <!-- 4 · Tekrar gönder -->
+        <Label Grid.Row="4" HorizontalTextAlignment="Center" Style="{StaticResource Caption}" Margin="0,22,0,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Kod gelmedi mi? " />
+                    <Span x:Name="ResendSpan" Text="Tekrar gönder (00:42)"
+                          FontFamily="{StaticResource FontInterSemi}"
+                          TextColor="{AppThemeBinding Light={StaticResource Navy}, Dark={StaticResource Accent}}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <!-- 5 · Spacer -->
+        <BoxView Grid.Row="5" Color="Transparent" />
+
+        <!-- 6 · CTA -->
+        <Button Grid.Row="6" Style="{StaticResource PrimaryButton}" Text="Doğrula" Clicked="OnVerify" />
+    </Grid>
+</ContentPage>

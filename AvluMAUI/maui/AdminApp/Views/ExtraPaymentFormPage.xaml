@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · ExtraPaymentFormPage — Yeni Ek Ödeme -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Avlu.AdminApp.Views.ExtraPaymentFormPage"
+             Title="Yeni Ek Ödeme">
+    <ScrollView>
+        <VerticalStackLayout Padding="20,20,20,28" Spacing="14">
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="AD" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Text="Asansör Yenileme" /></Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="MÜLK BAŞINA TUTAR (₺)" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Text="6.000,00" Keyboard="Numeric" /></Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="TAKSİT SAYISI" />
+                <Grid ColumnDefinitions="*,Auto,Auto" HeightRequest="52" Padding="16,0,8,0" ColumnSpacing="8"
+                      BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource WhiteAlpha04}}">
+                    <Label x:Name="InstallmentValue" Text="6" FontFamily="{StaticResource FontInterSemi}" FontSize="17" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                    <Button Grid.Column="1" Text="−" WidthRequest="36" HeightRequest="36" Padding="0" CornerRadius="10" Clicked="OnDecrement"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource LineSoft}, Dark={StaticResource WhiteAlpha06}}" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                    <Button Grid.Column="2" Text="+" WidthRequest="36" HeightRequest="36" Padding="0" CornerRadius="10" Clicked="OnIncrement"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource LineSoft}, Dark={StaticResource WhiteAlpha06}}" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                </Grid>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="KAPSAM" />
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="4" Padding="4" BackgroundColor="{AppThemeBinding Light={StaticResource LineSoft}, Dark={StaticResource WhiteAlpha04}}">
+                    <RadioButton Grid.Column="0" Content="Tüm Mülkler" GroupName="scope" IsChecked="True" />
+                    <RadioButton Grid.Column="1" Content="Seçili Mülkler" GroupName="scope" />
+                </Grid>
+            </VerticalStackLayout>
+
+            <Border Padding="12,10" StrokeThickness="0" BackgroundColor="{AppThemeBinding Light=#EFE3C6, Dark=#1AC8A15A}">
+                <Label x:Name="TotalLabel" Text="42 mülk × 6.000,00 ₺ = Toplam 252.000,00 ₺" FontFamily="{StaticResource FontInterSemi}" FontSize="12.5" TextColor="#8A6412" />
+            </Border>
+
+            <Button Text="Ek Ödemeyi Oluştur" Style="{StaticResource PrimaryButton}" Margin="0,8,0,0" Clicked="OnSaveTapped" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

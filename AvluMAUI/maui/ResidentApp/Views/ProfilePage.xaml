@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ResidentApp · ProfilePage -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="Avlu.ResidentApp.Views.ProfilePage"
+             Title="Profil">
+    <VerticalStackLayout Padding="20,20,20,28" Spacing="8">
+        <VerticalStackLayout HorizontalOptions="Center" Spacing="8" Margin="0,10,0,18">
+            <Border WidthRequest="64" HeightRequest="64" StrokeThickness="0" BackgroundColor="{AppThemeBinding Light=#EFE3C6, Dark=#28C8A15A}">
+                <Border.StrokeShape><shapes:RoundRectangle CornerRadius="999" /></Border.StrokeShape>
+                <Label Text="ZA" FontFamily="{StaticResource FontInterSemi}" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#8A6412" />
+            </Border>
+            <Label Text="Zeynep Arslan" FontFamily="{StaticResource FontInterSemi}" FontSize="17" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+            <Label Text="+90 555 987 65 43" Style="{StaticResource Caption}" />
+        </VerticalStackLayout>
+
+        <Grid Padding="16,15" ColumnDefinitions="*,Auto" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+            <Label Text="Aktif Mülk" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+            <Label Grid.Column="1" Text="A Blok · D12 ›" Style="{StaticResource Caption}" VerticalOptions="Center" />
+            <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnChangePropertyTapped" /></Grid.GestureRecognizers>
+        </Grid>
+        <Grid Padding="16,15" ColumnDefinitions="*,Auto" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+            <Label Text="Rol" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+            <Label Grid.Column="1" Text="Mülk Sahibi" Style="{StaticResource Caption}" VerticalOptions="Center" />
+        </Grid>
+        <Grid Padding="16,15" ColumnDefinitions="*,Auto" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}" Margin="0,0,0,14">
+            <Label Text="Dil" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+            <Label Grid.Column="1" Text="Türkçe ›" Style="{StaticResource Caption}" VerticalOptions="Center" />
+        </Grid>
+
+        <Grid Padding="16,15" BackgroundColor="{AppThemeBinding Light=#FBEAE9, Dark=#14B3261E}">
+            <Label Text="Çıkış Yap" FontFamily="{StaticResource FontInterSemi}" FontSize="14" HorizontalTextAlignment="Center" TextColor="{StaticResource Danger}" />
+            <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnLogoutTapped" /></Grid.GestureRecognizers>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

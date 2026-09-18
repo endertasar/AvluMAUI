@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ResidentApp · NotificationDetailPage -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Avlu.ResidentApp.Views.NotificationDetailPage"
+             Title="Bildirim">
+    <VerticalStackLayout Padding="20,20,20,28" Spacing="10">
+        <Label Text="2 sa önce" Style="{StaticResource Caption}" />
+        <Label Text="Ağustos Aidat Hatırlatması" FontFamily="{StaticResource FontInterSemi}" FontSize="20" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+        <Label Text="Değerli komşumuz, Ağustos ayı aidat ödemenizi 5 Ağustos'a kadar yapmanızı rica ederiz. Ödemelerinizi yönetim ofisine nakit veya havale yoluyla iletebilirsiniz."
+               FontSize="14" LineBreakMode="WordWrap" TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+    </VerticalStackLayout>
+</ContentPage>

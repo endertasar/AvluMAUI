@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · MorePage — "Diğer" alt tab menüsü -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Avlu.AdminApp.Views.MorePage"
+             Title="Diğer">
+    <VerticalStackLayout Padding="20,20,20,28" Spacing="8">
+        <Grid Padding="16,15" ColumnDefinitions="*,Auto" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+            <Label Text="Aidat Tanımı" FontFamily="{StaticResource FontInterSemi}" FontSize="14" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+            <Label Grid.Column="1" Text="›" FontSize="18" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+            <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnDuesTapped" /></Grid.GestureRecognizers>
+        </Grid>
+        <Grid Padding="16,15" ColumnDefinitions="*,Auto" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+            <Label Text="Ek Ödemeler" FontFamily="{StaticResource FontInterSemi}" FontSize="14" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+            <Label Grid.Column="1" Text="›" FontSize="18" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+            <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnExtraTapped" /></Grid.GestureRecognizers>
+        </Grid>
+        <Grid Padding="16,15" ColumnDefinitions="*,Auto" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+            <Label Text="Giderler" FontFamily="{StaticResource FontInterSemi}" FontSize="14" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+            <Label Grid.Column="1" Text="›" FontSize="18" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+            <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnExpensesTapped" /></Grid.GestureRecognizers>
+        </Grid>
+        <Grid Padding="16,15" ColumnDefinitions="*,Auto" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+            <Label Text="Bildirim Gönder" FontFamily="{StaticResource FontInterSemi}" FontSize="14" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+            <Label Grid.Column="1" Text="›" FontSize="18" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+            <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnNotifyTapped" /></Grid.GestureRecognizers>
+        </Grid>
+        <Grid Padding="16,15" ColumnDefinitions="*,Auto" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}" Margin="0,0,0,14">
+            <Label Text="Alt Kullanıcılar" FontFamily="{StaticResource FontInterSemi}" FontSize="14" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+            <Label Grid.Column="1" Text="›" FontSize="18" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+            <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnSubUsersTapped" /></Grid.GestureRecognizers>
+        </Grid>
+
+        <Grid Padding="16,15" BackgroundColor="{AppThemeBinding Light=#FBEAE9, Dark=#14B3261E}">
+            <Label Text="Çıkış Yap" FontFamily="{StaticResource FontInterSemi}" FontSize="14" HorizontalTextAlignment="Center" TextColor="{StaticResource Danger}" />
+            <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnLogoutTapped" /></Grid.GestureRecognizers>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

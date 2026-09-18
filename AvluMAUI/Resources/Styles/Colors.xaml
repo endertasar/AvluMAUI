@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Avlu Brand -->
+    <Color x:Key="Navy">#0E2A47</Color>
+    <Color x:Key="NavyDeep">#081B30</Color>
+    <Color x:Key="NavySoft">#1E4066</Color>
+    <Color x:Key="Accent">#C8A15A</Color>
+    <Color x:Key="AccentSoft">#EFE3C6</Color>
+    <Color x:Key="Ink">#0B1524</Color>
+    <Color x:Key="Sub">#5C6A7E</Color>
+    <Color x:Key="InkDark">#EAEEF5</Color>
+    <Color x:Key="SubDark">#8A9AB3</Color>
+    <Color x:Key="Surface">#FFFFFF</Color>
+    <Color x:Key="Bg">#F6F7FA</Color>
+    <Color x:Key="BgWarm">#FBF9F5</Color>
+    <Color x:Key="Line">#E4E8EF</Color>
+    <Color x:Key="LineSoft">#F0F3F8</Color>
+    <Color x:Key="SurfaceDark">#111C2E</Color>
+    <Color x:Key="BgDark">#0B1524</Color>
+    <Color x:Key="LineDark">#223148</Color>
+    <Color x:Key="Success">#2E7D57</Color>
+    <Color x:Key="Danger">#B3261E</Color>
+    <Color x:Key="Warning">#E07B00</Color>
+    <Color x:Key="Info">#1565C0</Color>
+    <Color x:Key="StatusPending">#E07B00</Color>
+    <Color x:Key="StatusPartial">#1565C0</Color>
+    <Color x:Key="StatusPaid">#2E7D57</Color>
+    <Color x:Key="StatusOverdue">#B3261E</Color>
+    <Color x:Key="WhiteAlpha04">#0AFFFFFF</Color>
+    <Color x:Key="WhiteAlpha08">#14FFFFFF</Color>
+    <Color x:Key="WhiteAlpha12">#1FFFFFFF</Color>
+
+    <!-- Semantic aliases used in views -->
+    <Color x:Key="NavyLight">#1E4066</Color>
+    <Color x:Key="DangerLight">#FDECEA</Color>
+    <Color x:Key="SuccessLight">#E8F5EE</Color>
+    <Color x:Key="TextMuted">#5C6A7E</Color>
+    <Color x:Key="TextSecondary">#5C6A7E</Color>
+
+    <!-- MAUI compat aliases -->
+    <Color x:Key="Primary">#0E2A47</Color>
+    <Color x:Key="PrimaryDark">#C8A15A</Color>
+    <Color x:Key="PrimaryDarkText">#EAEEF5</Color>
+    <Color x:Key="Secondary">#EFE3C6</Color>
+    <Color x:Key="SecondaryDarkText">#C8A15A</Color>
+    <Color x:Key="Tertiary">#081B30</Color>
+
+    <Color x:Key="White">White</Color>
+    <Color x:Key="Black">Black</Color>
+    <Color x:Key="Magenta">#D600AA</Color>
+    <Color x:Key="MidnightBlue">#190649</Color>
+    <Color x:Key="OffBlack">#1f1f1f</Color>
+
+    <Color x:Key="Gray100">#E1E1E1</Color>
+    <Color x:Key="Gray200">#C8C8C8</Color>
+    <Color x:Key="Gray300">#ACACAC</Color>
+    <Color x:Key="Gray400">#919191</Color>
+    <Color x:Key="Gray500">#6E6E6E</Color>
+    <Color x:Key="Gray600">#404040</Color>
+    <Color x:Key="Gray900">#212121</Color>
+    <Color x:Key="Gray950">#141414</Color>
+
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
+    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
+    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
+
+    <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
+    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
+    <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
+    <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}"/>
+    <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}"/>
+    <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
+    <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
+    <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+</ResourceDictionary>

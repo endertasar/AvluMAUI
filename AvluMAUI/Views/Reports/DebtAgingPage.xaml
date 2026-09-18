@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Reports"
+             x:Class="AvluMAUI.Views.Reports.DebtAgingPage"
+             x:DataType="vm:DebtAgingViewModel"
+             Title="Borç Yaşlandırma">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="12" Padding="16">
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Navy}" HorizontalOptions="Center" Margin="0,20"/>
+
+            <Label Text="{Binding ErrorMessage}" TextColor="{StaticResource Danger}"
+                   Style="{StaticResource Caption}"
+                   IsVisible="{Binding ErrorMessage, Converter={StaticResource BoolToVisibility}}"/>
+
+            <!-- Aging Cards -->
+            <Border Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="*,Auto" Padding="16">
+                    <Label Grid.Column="0" Text="0–30 Gün" Style="{StaticResource Body}"/>
+                    <Label Grid.Column="1"
+                           Text="{Binding Data.Days0To30, Converter={StaticResource AmountToString}}"
+                           Style="{StaticResource Body}" FontAttributes="Bold"
+                           TextColor="{StaticResource Warning}"/>
+                </Grid>
+            </Border>
+
+            <Border Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="*,Auto" Padding="16">
+                    <Label Grid.Column="0" Text="31–60 Gün" Style="{StaticResource Body}"/>
+                    <Label Grid.Column="1"
+                           Text="{Binding Data.Days31To60, Converter={StaticResource AmountToString}}"
+                           Style="{StaticResource Body}" FontAttributes="Bold"
+                           TextColor="{StaticResource Warning}"/>
+                </Grid>
+            </Border>
+
+            <Border Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="*,Auto" Padding="16">
+                    <Label Grid.Column="0" Text="61–90 Gün" Style="{StaticResource Body}"/>
+                    <Label Grid.Column="1"
+                           Text="{Binding Data.Days61To90, Converter={StaticResource AmountToString}}"
+                           Style="{StaticResource Body}" FontAttributes="Bold"
+                           TextColor="{StaticResource Danger}"/>
+                </Grid>
+            </Border>
+
+            <Border Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="*,Auto" Padding="16">
+                    <Label Grid.Column="0" Text="90+ Gün" Style="{StaticResource Body}"/>
+                    <Label Grid.Column="1"
+                           Text="{Binding Data.DaysOver90, Converter={StaticResource AmountToString}}"
+                           Style="{StaticResource Body}" FontAttributes="Bold"
+                           TextColor="{StaticResource Danger}"/>
+                </Grid>
+            </Border>
+
+            <!-- Total -->
+            <Border Style="{StaticResource Card}" BackgroundColor="{StaticResource NavyDeep}">
+                <Grid ColumnDefinitions="*,Auto" Padding="16">
+                    <Label Grid.Column="0" Text="Toplam" Style="{StaticResource Body}"
+                           FontAttributes="Bold" TextColor="White"/>
+                    <Label Grid.Column="1"
+                           Text="{Binding Data.Total, Converter={StaticResource AmountToString}}"
+                           Style="{StaticResource H2}" TextColor="{StaticResource Accent}"/>
+                </Grid>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

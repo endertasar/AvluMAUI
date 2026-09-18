@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Reports"
+             xmlns:models="clr-namespace:AvluMAUI.Models.Report"
+             x:Class="AvluMAUI.Views.Reports.OverduePage"
+             x:DataType="vm:OverdueViewModel"
+             Title="Gecikmiş Ödemeler">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Total Banner -->
+        <Border Grid.Row="0"
+                BackgroundColor="{StaticResource Danger}"
+                Margin="16,12,16,0"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 12">
+            <Grid ColumnDefinitions="*,Auto" Padding="16,12">
+                <Label Grid.Column="0" Text="Toplam Gecikmiş" Style="{StaticResource Body}"
+                       TextColor="White"/>
+                <Label Grid.Column="1"
+                       Text="{Binding TotalOverdue, Converter={StaticResource AmountToString}}"
+                       Style="{StaticResource H2}" TextColor="White"/>
+            </Grid>
+        </Border>
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Items}"
+                        Margin="16,8,16,16">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:OverdueChargeDto">
+                    <Border Style="{StaticResource Card}" Margin="0,0,0,8">
+                        <Grid ColumnDefinitions="*,Auto" Padding="16,12">
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="{Binding DisplayName}" Style="{StaticResource Body}" FontAttributes="Bold"/>
+                                <Label Text="{Binding DueDate}" Style="{StaticResource Caption}"
+                                       TextColor="{StaticResource TextMuted}"/>
+                                <Label Style="{StaticResource Caption}" TextColor="{StaticResource Danger}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding DaysOverdue}"/>
+                                            <Span Text=" gün gecikmiş"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1"
+                                   Text="{Binding RemainingAmount, Converter={StaticResource AmountToString}}"
+                                   Style="{StaticResource Body}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource Danger}"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <Label Text="Gecikmiş ödeme yok." Style="{StaticResource Body}"
+                       TextColor="{StaticResource Success}"
+                       HorizontalOptions="Center" Margin="0,40"/>
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

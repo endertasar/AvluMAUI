@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Dashboard"
+             x:Class="AvluMAUI.Views.Dashboard.DashboardPage"
+             x:DataType="vm:DashboardViewModel"
+             Title="Panel">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="16">
+
+            <!-- Header -->
+            <Grid ColumnDefinitions="*,Auto" Margin="0,8,0,0">
+                <VerticalStackLayout Grid.Column="0">
+                    <Label Text="Avlu Yönetici" Style="{StaticResource H2}"/>
+                    <Label Text="Hoş geldiniz" Style="{StaticResource Body}"
+                           TextColor="{StaticResource TextMuted}"/>
+                </VerticalStackLayout>
+                <Button Grid.Column="1" Text="Çıkış"
+                        Style="{StaticResource SecondaryButton}"
+                        Command="{Binding LogoutCommand}"
+                        WidthRequest="80"/>
+            </Grid>
+
+            <!-- Summary Cards -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+
+                <!-- Total Debt -->
+                <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource Card}">
+                    <VerticalStackLayout Padding="16">
+                        <Label Text="Toplam Borç" Style="{StaticResource Caption}"
+                               TextColor="{StaticResource TextMuted}"/>
+                        <Label Text="{Binding Summary.TotalDebt, Converter={StaticResource AmountToString}}"
+                               Style="{StaticResource H2}"
+                               TextColor="{StaticResource Danger}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Total Collected -->
+                <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource Card}">
+                    <VerticalStackLayout Padding="16">
+                        <Label Text="Tahsilat" Style="{StaticResource Caption}"
+                               TextColor="{StaticResource TextMuted}"/>
+                        <Label Text="{Binding Summary.TotalCollected, Converter={StaticResource AmountToString}}"
+                               Style="{StaticResource H2}"
+                               TextColor="{StaticResource Success}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Overdue -->
+                <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource Card}">
+                    <VerticalStackLayout Padding="16">
+                        <Label Text="Gecikmiş" Style="{StaticResource Caption}"
+                               TextColor="{StaticResource TextMuted}"/>
+                        <Label Text="{Binding Summary.TotalOverdue, Converter={StaticResource AmountToString}}"
+                               Style="{StaticResource H2}"
+                               TextColor="{StaticResource Warning}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Overdue Count -->
+                <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource Card}">
+                    <VerticalStackLayout Padding="16">
+                        <Label Text="Borçlu Daire" Style="{StaticResource Caption}"
+                               TextColor="{StaticResource TextMuted}"/>
+                        <Label Text="{Binding Summary.OverdueCount}"
+                               Style="{StaticResource H2}"
+                               TextColor="{StaticResource NavyLight}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </Grid>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Navy}"
+                               HorizontalOptions="Center"/>
+
+            <Label Text="{Binding ErrorMessage}"
+                   TextColor="{StaticResource Danger}"
+                   Style="{StaticResource Caption}"
+                   IsVisible="{Binding ErrorMessage, Converter={StaticResource BoolToVisibility}}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

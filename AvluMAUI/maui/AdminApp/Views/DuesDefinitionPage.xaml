@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · DuesDefinitionPage — Aidat Tanımı -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="Avlu.AdminApp.Views.DuesDefinitionPage"
+             Title="Aidat Tanımı">
+    <ScrollView>
+        <VerticalStackLayout Padding="20,20,20,28" Spacing="10">
+
+            <!-- Tanımlı: Daire -->
+            <Border Padding="16" StrokeThickness="1"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource SurfaceDark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource LineDark}}">
+                <Border.StrokeShape><shapes:RoundRectangle CornerRadius="16" /></Border.StrokeShape>
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout>
+                        <Label Text="Daire" FontFamily="{StaticResource FontInterSemi}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                        <Label Text="Geçerlilik: 2026-07" Style="{StaticResource Caption}" FontSize="11.5" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="1" Text="1.250,00 ₺" FontFamily="{StaticResource FontInterSemi}" FontSize="18" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                </Grid>
+            </Border>
+
+            <!-- Tanımlı: Otopark -->
+            <Border Padding="16" StrokeThickness="1"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource SurfaceDark}}"
+                    Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource LineDark}}">
+                <Border.StrokeShape><shapes:RoundRectangle CornerRadius="16" /></Border.StrokeShape>
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout>
+                        <Label Text="Otopark" FontFamily="{StaticResource FontInterSemi}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                        <Label Text="Geçerlilik: 2026-07" Style="{StaticResource Caption}" FontSize="11.5" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="1" Text="350,00 ₺" FontFamily="{StaticResource FontInterSemi}" FontSize="18" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                </Grid>
+            </Border>
+
+            <!-- Tanımsız: Dükkan (uyarı) -->
+            <Border Padding="16" StrokeThickness="0" BackgroundColor="{AppThemeBinding Light=#EFE3C6, Dark=#14C8A15A}">
+                <Border.StrokeShape><shapes:RoundRectangle CornerRadius="16" /></Border.StrokeShape>
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout>
+                        <Label Text="Dükkan" FontFamily="{StaticResource FontInterSemi}" FontSize="14" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                        <Label Text="Tanım yok — tahakkuk üretilemez" FontFamily="{StaticResource FontInterSemi}" FontSize="11.5" TextColor="#8A6412" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="1" Text="Tanımla" FontFamily="{StaticResource FontInterSemi}" FontSize="12.5"
+                           TextColor="{AppThemeBinding Light={StaticResource Navy}, Dark={StaticResource Accent}}" VerticalOptions="Center" />
+                </Grid>
+            </Border>
+
+            <Label Text="Yeni Tanım" FontFamily="{StaticResource FontInterSemi}" FontSize="13" Margin="0,14,0,0" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+
+            <Picker x:Name="TypePicker" Title="Tip seç">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Daire</x:String>
+                        <x:String>Dükkan</x:String>
+                        <x:String>Otopark</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="TUTAR (₺)" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Text="1.250,00" Keyboard="Numeric" /></Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="GEÇERLİLİK BAŞLANGICI" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Text="Temmuz 2026" /></Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="AÇIKLAMA (opsiyonel)" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Placeholder="Örn. 2026 yılı zam sonrası tutar" /></Border>
+            </VerticalStackLayout>
+
+            <Button Text="Tanımı Kaydet" Style="{StaticResource PrimaryButton}" Margin="0,8,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

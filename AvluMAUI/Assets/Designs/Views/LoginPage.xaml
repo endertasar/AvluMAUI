@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Avlu · LoginPage
+  Header (logo + TR/EN), selamlama, Mülk Sahibi / Yönetici segmented, telefon + şifre,
+  Beni hatırla + Şifremi unuttum, Giriş Yap butonu, kayıt ol linki, KVKK notu.
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Avlu.Controls"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="Avlu.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <Grid Padding="24,54,24,28" RowDefinitions="Auto,Auto,Auto,Auto,*,Auto" RowSpacing="0">
+
+            <!-- 0 · Header: logomark + TR/EN -->
+            <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,34">
+                <controls:AvluLogomark Size="32"
+                                       MainColor="{AppThemeBinding Light={StaticResource Navy}, Dark=White}"
+                                       AccentColor="{StaticResource Accent}"
+                                       VerticalOptions="Center" />
+                <!-- TR/EN chip (segmented pill) -->
+                <Border Grid.Column="1"
+                        Padding="3" HeightRequest="30"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource WhiteAlpha08}}"
+                        Stroke="{AppThemeBinding Light={StaticResource Line}, Dark={StaticResource WhiteAlpha12}}"
+                        StrokeThickness="1">
+                    <Border.StrokeShape><shapes:RoundRectangle CornerRadius="999" /></Border.StrokeShape>
+                    <HorizontalStackLayout Spacing="2">
+                        <Button x:Name="LangTrBtn" Text="TR" Clicked="OnLangTr"
+                                HeightRequest="24" Padding="11,0" CornerRadius="999" BorderWidth="0"
+                                FontFamily="{StaticResource FontInterSemi}" FontSize="11" CharacterSpacing="1.5"
+                                BackgroundColor="{StaticResource Navy}" TextColor="White" />
+                        <Button x:Name="LangEnBtn" Text="EN" Clicked="OnLangEn"
+                                HeightRequest="24" Padding="11,0" CornerRadius="999" BorderWidth="0"
+                                FontFamily="{StaticResource FontInterSemi}" FontSize="11" CharacterSpacing="1.5"
+                                BackgroundColor="Transparent"
+                                TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+                    </HorizontalStackLayout>
+                </Border>
+            </Grid>
+
+            <!-- 1 · Selamlama -->
+            <VerticalStackLayout Grid.Row="1" Spacing="8" Margin="0,0,0,26">
+                <Label Style="{StaticResource H1}" Text="Merhaba, komşu 👋" />
+                <Label Style="{StaticResource Body}" Text="Avlu'ya hoş geldin. Devam etmek için hesabına giriş yap." />
+            </VerticalStackLayout>
+
+            <!-- 2 · Rol seçici (Mülk Sahibi / Yönetici) -->
+            <Border Grid.Row="2" Margin="0,0,0,18" Padding="4"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource LineSoft}, Dark={StaticResource WhiteAlpha04}}"
+                    StrokeThickness="0">
+                <Border.StrokeShape><shapes:RoundRectangle CornerRadius="12" /></Border.StrokeShape>
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
+                    <Button x:Name="RoleResidentBtn" Grid.Column="0" Text="Mülk Sahibi"
+                            Clicked="OnRoleResident"
+                            HeightRequest="40" CornerRadius="9" BorderWidth="0"
+                            FontFamily="{StaticResource FontInterSemi}" FontSize="13"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource Surface}, Dark={StaticResource SurfaceDark}}"
+                            TextColor="{AppThemeBinding Light={StaticResource Navy}, Dark={StaticResource InkDark}}" />
+                    <Button x:Name="RoleManagerBtn" Grid.Column="1" Text="Yönetici"
+                            Clicked="OnRoleManager"
+                            HeightRequest="40" CornerRadius="9" BorderWidth="0"
+                            FontFamily="{StaticResource FontInterSemi}" FontSize="13"
+                            BackgroundColor="Transparent"
+                            TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+                </Grid>
+            </Border>
+
+            <!-- 3 · Form -->
+            <VerticalStackLayout Grid.Row="3" Spacing="14">
+
+                <!-- Telefon -->
+                <VerticalStackLayout Spacing="6">
+                    <Label Style="{StaticResource FieldLabel}" Text="TELEFON NUMARASI" />
+                    <Border Style="{StaticResource FieldBorder}">
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                            <Label Grid.Column="0" Text="+90"
+                                   FontFamily="{StaticResource FontInterSemi}" FontSize="15"
+                                   TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}"
+                                   VerticalOptions="Center" />
+                            <Entry Grid.Column="1" x:Name="PhoneEntry"
+                                   Style="{StaticResource FieldEntry}"
+                                   Keyboard="Telephone"
+                                   Placeholder="555 123 45 67"
+                                   MaxLength="13" />
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Şifre -->
+                <VerticalStackLayout Spacing="6">
+                    <Label Style="{StaticResource FieldLabel}" Text="ŞİFRE" />
+                    <Border Style="{StaticResource FieldBorder}">
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                            <Entry Grid.Column="0" x:Name="PasswordEntry"
+                                   Style="{StaticResource FieldEntry}"
+                                   IsPassword="True"
+                                   Placeholder="••••••••" />
+                            <ImageButton Grid.Column="1"
+                                         Source="eye.png"
+                                         BackgroundColor="Transparent"
+                                         HeightRequest="22" WidthRequest="22"
+                                         Clicked="OnTogglePassword" />
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Beni hatırla + Şifremi unuttum -->
+                <Grid ColumnDefinitions="*,Auto" Margin="0,2,0,0" VerticalOptions="Center">
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                        <CheckBox x:Name="RememberCheck" IsChecked="True"
+                                  Color="{AppThemeBinding Light={StaticResource Navy}, Dark={StaticResource Accent}}" />
+                        <Label Text="Beni hatırla" Style="{StaticResource Caption}" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                    <Label Grid.Column="1" Style="{StaticResource Link}" Text="Şifremi unuttum" VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnForgotTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </VerticalStackLayout>
+
+            <!-- 4 · Spacer -->
+            <BoxView Grid.Row="4" HeightRequest="20" Color="Transparent" />
+
+            <!-- 5 · CTA + alt metin -->
+            <VerticalStackLayout Grid.Row="5" Spacing="12">
+                <Button Style="{StaticResource PrimaryButton}" Text="Giriş Yap" Clicked="OnLoginTapped" />
+
+                <Label HorizontalTextAlignment="Center" Style="{StaticResource Caption}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Henüz hesabın yok mu? " />
+                            <Span Text="Kayıt ol"
+                                  FontFamily="{StaticResource FontInterSemi}"
+                                  TextColor="{AppThemeBinding Light={StaticResource Navy}, Dark={StaticResource Accent}}">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnSignupTapped" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label Style="{StaticResource Legal}" Margin="0,4,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Devam ederek " />
+                            <Span Text="Kullanım Şartları" TextDecorations="Underline" />
+                            <Span Text=" ve " />
+                            <Span Text="KVKK Aydınlatma Metni" TextDecorations="Underline" />
+                            <Span Text="'ni kabul etmiş olursun." />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

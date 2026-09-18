@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Reports"
+             xmlns:models="clr-namespace:AvluMAUI.Models.Report"
+             x:Class="AvluMAUI.Views.Reports.MonthlyCollectionPage"
+             x:DataType="vm:MonthlyCollectionViewModel"
+             Title="Aylık Tahsilat">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Year Picker -->
+        <Border Grid.Row="0" Style="{StaticResource FieldBorder}" Margin="16,12">
+            <Picker ItemsSource="{Binding AvailableYears}"
+                    SelectedItem="{Binding Year}"
+                    Style="{StaticResource FieldPicker}"/>
+        </Border>
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Rows}"
+                        Margin="16,0,16,16">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:MonthlyCollectionDto">
+                    <Border Style="{StaticResource Card}" Margin="0,0,0,8">
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="16,12">
+                            <Label Grid.Column="0"
+                                   Text="{Binding Month, StringFormat='{0:D2}'}"
+                                   Style="{StaticResource H2}"
+                                   TextColor="{StaticResource NavyLight}"
+                                   WidthRequest="36"/>
+                            <VerticalStackLayout Grid.Column="1" Margin="8,0">
+                                <Label Style="{StaticResource Caption}" TextColor="{StaticResource TextMuted}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Tahakkuk: "/>
+                                            <Span Text="{Binding TotalCharged, Converter={StaticResource AmountToString}}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Style="{StaticResource Caption}" TextColor="{StaticResource Success}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Tahsilat: "/>
+                                            <Span Text="{Binding TotalCollected, Converter={StaticResource AmountToString}}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="2"
+                                   Text="{Binding CollectionRate, StringFormat='{0:P0}'}"
+                                   Style="{StaticResource Body}"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

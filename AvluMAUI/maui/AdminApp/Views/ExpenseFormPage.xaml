@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- AdminApp · ExpenseFormPage -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Avlu.AdminApp.Views.ExpenseFormPage"
+             Title="Gider Ekle">
+    <ScrollView>
+        <VerticalStackLayout Padding="20,20,20,28" Spacing="14">
+            <Picker x:Name="CategoryPicker" Title="Kategori seç">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Bakım</x:String>
+                        <x:String>Peyzaj</x:String>
+                        <x:String>Fatura</x:String>
+                        <x:String>Temizlik</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="TUTAR (₺)" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Text="3.200,00" Keyboard="Numeric" /></Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="TARİH" />
+                <DatePicker Format="dd MMMM yyyy" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Style="{StaticResource FieldLabel}" Text="AÇIKLAMA" />
+                <Border Style="{StaticResource FieldBorder}"><Entry Style="{StaticResource FieldEntry}" Text="Asansör Bakımı" /></Border>
+            </VerticalStackLayout>
+            <Button Text="Gideri Kaydet" Style="{StaticResource PrimaryButton}" Margin="0,8,0,0" Clicked="OnSaveTapped" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

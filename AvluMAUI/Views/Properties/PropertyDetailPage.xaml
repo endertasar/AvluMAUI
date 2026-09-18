@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Properties"
+             xmlns:dueModels="clr-namespace:AvluMAUI.Models.Dues"
+             x:Class="AvluMAUI.Views.Properties.PropertyDetailPage"
+             x:DataType="vm:PropertyDetailViewModel"
+             Title="{Binding Property.DisplayName}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="16">
+
+            <!-- Action Buttons -->
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                <Button Grid.Column="0" Text="Düzenle"
+                        Command="{Binding EditCommand}"
+                        Style="{StaticResource SecondaryButton}"/>
+                <Button Grid.Column="1" Text="Kişi Bilgileri"
+                        Command="{Binding AssignResidentCommand}"
+                        Style="{StaticResource SecondaryButton}"/>
+                <Button Grid.Column="2" Text="Borç Ekle"
+                        Command="{Binding AddChargeCommand}"
+                        Style="{StaticResource PrimaryButton}"/>
+            </Grid>
+
+            <!-- Charges Section -->
+            <Label Text="Borçlar" Style="{StaticResource H2}" Margin="0,8,0,0"/>
+            <CollectionView ItemsSource="{Binding Charges}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="dueModels:DuesChargeDto">
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,8">
+                            <Grid ColumnDefinitions="*,Auto" Padding="12">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label Text="{Binding PeriodLabel}" Style="{StaticResource Body}"/>
+                                    <Label Text="{Binding DueDate, StringFormat='{0:dd.MM.yyyy}'}"
+                                           Style="{StaticResource Caption}"
+                                           TextColor="{StaticResource TextMuted}"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1" HorizontalOptions="End">
+                                    <Label Text="{Binding Amount, Converter={StaticResource AmountToString}}"
+                                           Style="{StaticResource Body}" FontAttributes="Bold"
+                                           HorizontalOptions="End"/>
+                                    <Label Text="{Binding StatusLabel}"
+                                           Style="{StaticResource Caption}"
+                                           TextColor="{Binding Status, Converter={StaticResource StatusToColor}}"
+                                           HorizontalOptions="End"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <Label Text="Kayıtlı borç yok." Style="{StaticResource Caption}"
+                           TextColor="{StaticResource TextMuted}"/>
+                </CollectionView.EmptyView>
+            </CollectionView>
+
+            <!-- Delete -->
+            <Button Text="Daireyi Sil"
+                    Command="{Binding DeleteCommand}"
+                    Style="{StaticResource DangerButton}"
+                    Margin="0,16,0,0"/>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Navy}" HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

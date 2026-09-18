@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ResidentApp · DebtsPage — Borçlarım -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Avlu.Controls"
+             xmlns:shapes="clr-namespace:Microsoft.Maui.Controls.Shapes;assembly=Microsoft.Maui.Controls"
+             x:Class="Avlu.ResidentApp.Views.DebtsPage"
+             Title="A Blok · D12">
+    <ScrollView>
+        <controls:DataStateView x:Name="StateHost" CurrentState="Content" ErrorMessage="Borç bilgileri yüklenemedi.">
+            <controls:DataStateView.ContentViewContent>
+                <VerticalStackLayout Padding="20,20,20,28" Spacing="0">
+                    <Border Padding="18" Margin="0,0,0,14" StrokeThickness="0" BackgroundColor="{AppThemeBinding Light=#FBEAE9, Dark=#1AB3261E}">
+                        <Border.StrokeShape><shapes:RoundRectangle CornerRadius="18" /></Border.StrokeShape>
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="TOPLAM BORÇ" FontFamily="{StaticResource FontInterSemi}" FontSize="11.5" TextColor="{StaticResource Danger}" />
+                            <Label Text="2.250,00 ₺" FontFamily="{StaticResource FontInterSemi}" FontSize="30" TextColor="{StaticResource Danger}" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Grid Padding="13,12" Margin="0,0,0,22" ColumnDefinitions="*,Auto" BackgroundColor="{AppThemeBinding Light=#E3F2E9, Dark=#1A2E7D57}">
+                        <Label Text="Alacağınız" FontFamily="{StaticResource FontInterSemi}" FontSize="13" TextColor="{StaticResource Success}" VerticalOptions="Center" />
+                        <Label Grid.Column="1" Text="0,00 ₺" FontFamily="{StaticResource FontInterSemi}" FontSize="14" TextColor="{StaticResource Success}" VerticalOptions="Center" />
+                    </Grid>
+
+                    <Label Text="Aidat" FontFamily="{StaticResource FontInterSemi}" FontSize="13" Margin="0,0,0,10" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                    <CollectionView x:Name="DuesList" Margin="0,0,0,22">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="14,13" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="10" Margin="0,0,0,8"
+                                      BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+                                    <Label Text="{Binding Period}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                    <Label Grid.Column="1" Text="{Binding AmountDisplay}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                    <controls:StatusPill Grid.Column="2" StatusValue="{Binding Status}" VerticalOptions="Center" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Label Text="Ek Ödemeler" FontFamily="{StaticResource FontInterSemi}" FontSize="13" Margin="0,0,0,10" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                    <CollectionView x:Name="ExtrasList" Margin="0,0,0,20">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="14,13" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="10" Margin="0,0,0,8"
+                                      BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource SurfaceDark}}">
+                                    <Label Text="{Binding Name}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                    <Label Grid.Column="1" Text="{Binding AmountDisplay}" FontFamily="{StaticResource FontInterSemi}" FontSize="13.5" VerticalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Ink}, Dark={StaticResource InkDark}}" />
+                                    <controls:StatusPill Grid.Column="2" StatusValue="{Binding Status}" VerticalOptions="Center" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Border Padding="12,10" StrokeThickness="0" BackgroundColor="{AppThemeBinding Light={StaticResource LineSoft}, Dark={StaticResource WhiteAlpha04}}">
+                        <Label Text="Ödemeler yöneticinizce tahsil edilir." FontSize="12" HorizontalTextAlignment="Center" TextColor="{AppThemeBinding Light={StaticResource Sub}, Dark={StaticResource SubDark}}" />
+                    </Border>
+                </VerticalStackLayout>
+            </controls:DataStateView.ContentViewContent>
+        </controls:DataStateView>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AvluMAUI.ViewModels.Payments"
+             xmlns:dueModels="clr-namespace:AvluMAUI.Models.Dues"
+             xmlns:propModels="clr-namespace:AvluMAUI.Models.Property"
+             x:Class="AvluMAUI.Views.Payments.PaymentCollectPage"
+             x:DataType="vm:PaymentCollectViewModel"
+             Title="Tahsilat">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="16">
+
+            <Label Text="{Binding ErrorMessage}" TextColor="{StaticResource Danger}"
+                   Style="{StaticResource Caption}"
+                   IsVisible="{Binding ErrorMessage, Converter={StaticResource BoolToVisibility}}"
+                   Margin="0,0,0,12"/>
+
+            <Label Text="Daire *" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Picker ItemsSource="{Binding Properties}"
+                        SelectedItem="{Binding SelectedProperty}"
+                        ItemDisplayBinding="{Binding DisplayName}"
+                        Style="{StaticResource FieldPicker}"/>
+            </Border>
+
+            <Label Text="Borç *" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Picker ItemsSource="{Binding Charges}"
+                        SelectedItem="{Binding SelectedCharge}"
+                        ItemDisplayBinding="{Binding PeriodLabel}"
+                        Style="{StaticResource FieldPicker}"/>
+            </Border>
+
+            <Label Text="Tutar (₺) *" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Entry Placeholder="0" Text="{Binding Amount}"
+                       Keyboard="Numeric" Style="{StaticResource FieldEntry}"/>
+            </Border>
+
+            <Label Text="Ödeme Yöntemi" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,16">
+                <Picker ItemsSource="{Binding PaymentMethods}"
+                        SelectedItem="{Binding Method}"
+                        Style="{StaticResource FieldPicker}"/>
+            </Border>
+
+            <Label Text="Not (opsiyonel)" Style="{StaticResource FieldLabel}" Margin="0,0,0,6"/>
+            <Border Style="{StaticResource FieldBorder}" Margin="0,0,0,32">
+                <Entry Placeholder="Açıklama..." Text="{Binding Note}" Style="{StaticResource FieldEntry}"/>
+            </Border>
+
+            <Button Text="Ödemeyi Kaydet"
+                    Command="{Binding SaveCommand}"
+                    Style="{StaticResource PrimaryButton}"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBool}}"/>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Navy}" HorizontalOptions="Center" Margin="0,12"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
